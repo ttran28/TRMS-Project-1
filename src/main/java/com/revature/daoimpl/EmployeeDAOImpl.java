@@ -22,7 +22,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		List<Employee> employees = new ArrayList<>();
 		
 		// Prepares the SQL resources
-		String sql = "SELECT * FROM EMPLOYEE";
+		String sql = "SELECT * FROM EMPID";
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		
@@ -30,7 +30,20 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		while(rs.next()) {
 			Employee emp = new Employee();
 			
-			
+			emp.setId(rs.getInt(1));
+			emp.setName(rs.getString(2));
+			emp.setAddress(rs.getString(3));
+			emp.setPhone(rs.getString(4));
+			emp.setEmail(rs.getString(5));
+			emp.setUsername(rs.getString(6));
+			emp.setPassword(rs.getString(7));
+			emp.setAvailableReimbursement(rs.getDouble(8));
+			emp.setSupervisorId(rs.getInt(9));
+			emp.setHeadId(rs.getInt(10));
+			emp.setBenCoId(rs.getInt(11));
+			emp.setSupervisor(rs.getBoolean(12));
+			emp.setHead(rs.getBoolean(13));
+			emp.setBenCo(rs.getBoolean(14));
 			
 			employees.add(emp);
 		}
@@ -48,14 +61,27 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		Employee emp = new Employee();
 				
 		// Prepares the SQL resources
-		String sql = "SELECT * FROM EMPLOYEE WHERE empId = ?";
+		String sql = "SELECT * FROM EMPID WHERE EMPID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
 		
 		//Puts the retrieved employee information into emp
 		while(rs.next()) {
-			
+			emp.setId(rs.getInt(1));
+			emp.setName(rs.getString(2));
+			emp.setAddress(rs.getString(3));
+			emp.setPhone(rs.getString(4));
+			emp.setEmail(rs.getString(5));
+			emp.setUsername(rs.getString(6));
+			emp.setPassword(rs.getString(7));
+			emp.setAvailableReimbursement(rs.getDouble(8));
+			emp.setSupervisorId(rs.getInt(9));
+			emp.setHeadId(rs.getInt(10));
+			emp.setBenCoId(rs.getInt(11));
+			emp.setSupervisor(rs.getBoolean(12));
+			emp.setHead(rs.getBoolean(13));
+			emp.setBenCo(rs.getBoolean(14));
 		}
 		
 		// Closes the database connection and returns emp
@@ -71,7 +97,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		Employee emp = new Employee();
 						
 		// Prepares the SQL resources
-		String sql = "SELECT * FROM EMPLOYEE WHERE username = ? AND password = ?";
+		String sql = "SELECT * FROM EMPID WHERE EMPUSERNAME = ? AND EMPPASSWORD = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, username);
 		stmt.setString(2, password);
@@ -79,7 +105,20 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 				
 		//Puts the retrieved employee information into emp
 		while(rs.next()) {
-			
+			emp.setId(rs.getInt(1));
+			emp.setName(rs.getString(2));
+			emp.setAddress(rs.getString(3));
+			emp.setPhone(rs.getString(4));
+			emp.setEmail(rs.getString(5));
+			emp.setUsername(rs.getString(6));
+			emp.setPassword(rs.getString(7));
+			emp.setAvailableReimbursement(rs.getDouble(8));
+			emp.setSupervisorId(rs.getInt(9));
+			emp.setHeadId(rs.getInt(10));
+			emp.setBenCoId(rs.getInt(11));
+			emp.setSupervisor(rs.getBoolean(12));
+			emp.setHead(rs.getBoolean(13));
+			emp.setBenCo(rs.getBoolean(14));
 		}
 				
 		// Closes the database connection and returns emp
@@ -95,7 +134,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		List<Employee> employees = new ArrayList<>();
 								
 		// Prepares the SQL resources
-		String sql = "SELECT * FROM Subordinates WHERE SupId = ?";
+		String sql = "SELECT * FROM EMPID WHERE DIRSUPID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
@@ -104,8 +143,20 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		while(rs.next()) {
 			Employee emp = new Employee();
 			
-			
-			
+			emp.setId(rs.getInt(1));
+			emp.setName(rs.getString(2));
+			emp.setAddress(rs.getString(3));
+			emp.setPhone(rs.getString(4));
+			emp.setEmail(rs.getString(5));
+			emp.setUsername(rs.getString(6));
+			emp.setPassword(rs.getString(7));
+			emp.setAvailableReimbursement(rs.getDouble(8));
+			emp.setSupervisorId(rs.getInt(9));
+			emp.setHeadId(rs.getInt(10));
+			emp.setBenCoId(rs.getInt(11));
+			emp.setSupervisor(rs.getBoolean(12));
+			emp.setHead(rs.getBoolean(13));
+			emp.setBenCo(rs.getBoolean(14));
 			
 			employees.add(emp);
 		}
