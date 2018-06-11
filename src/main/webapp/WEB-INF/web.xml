@@ -33,7 +33,7 @@
     <description></description>
     <display-name>FormServlet</display-name>
     <servlet-name>FormServlet</servlet-name>
-    <servlet-class>com.revature.servlet.FormServlet</servlet-class>
+    <servlet-class>com.revature.servlet.SubmitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FormServlet</servlet-name>
@@ -43,7 +43,7 @@
     <description></description>
     <display-name>ReimbursementServlet</display-name>
     <servlet-name>ReimbursementServlet</servlet-name>
-    <servlet-class>com.revature.servlet.ReimbursementServlet</servlet-class>
+    <servlet-class>com.revature.servlet.FormServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ReimbursementServlet</servlet-name>
@@ -53,7 +53,7 @@
     <description></description>
     <display-name>RequestServlet</display-name>
     <servlet-name>RequestServlet</servlet-name>
-    <servlet-class>com.revature.servlet.RequestServlet</servlet-class>
+    <servlet-class>com.revature.servlet.ResponseServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RequestServlet</servlet-name>
