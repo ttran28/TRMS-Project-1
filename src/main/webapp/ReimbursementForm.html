@@ -1,23 +1,67 @@
 <!DOCTYPE html>
-<html lang ="en">
-   <head>
-       <link rel="stylesheet" href="TRMS.css">
-       <title> Home </title>
-   </head>
-   <body>
-   	<center><h1>Reimbursement Form</h1></center>
-   	<center><form action="/form.js">
-  		Reimbursement ID:
-  		<input type="text" name="Reimbursement ID">
-  		<br><br>	
-  		Reimbursement Type:
-  		<input type="text" name="Reimbursement Type">
-  		<br><br>
-      Reimbursement Amount:
-      <input type="text" name="Reimbursement Amount">
-      <br><br>
-      <br><br>
-  		<a href = "home.html"> <input type="submit" value="Submit"> </a>
-		</form> </center>
-   </body>
+<html lang="en">
+<head>
+    <title>Home</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Bootstrap-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Company Brand Name -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">DJ MA Tuition Reimbursement Managment System</a>
+            </div>
+
+            <!-- Logout -->
+            <ul class="nav navbar-nav navbar-right">
+                <li id="logout"><a href="#"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Reimbursement Form -->
+    <h1>Reimbursement Form</h1>
+    <form id="reimbursementform" action="">
+        <!-- Event Type -->
+        <div class="form-group">
+            <label for="reimbursementtype">Event Type:</label>
+            <select class="form-control" id="reimbursementtype" required="required">
+                <option>Certification</option>
+                <option>Certification Preparation Classes</option>
+                <option>Seminars</option>
+                <option>Technical Training</option>
+                <option>University Courses</option>
+            </select>
+        </div>
+
+        <!-- Event Date -->
+        <div class="form-group">
+            <label for="eventdate">Event Date:</label>
+            <input type="date" class="form-control" id="eventdate" required="required">
+        </div>
+
+        <!-- Reimbursement Amount -->
+        <div class="form-group">
+            <label for="reimbursementamount">Reimbursement Amount:</label>
+            <input type="number" class="form-control" id="reimbursementamount" min=".01" max="1000" placeholder="0.00" required="required">
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>
+</body>
 </html>
