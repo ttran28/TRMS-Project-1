@@ -27,33 +27,37 @@
         <div class="tab-content">
             <div id="reibursementForm" class="tab-pane fade in active">
                 <!--Table-->
-                <table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Reimbursement ID</th>
+                            <th>Reimbursement Type</th>
+                            <th>Reimbursement Amount</th>
+                            <th>Status</th>
+                            <th>Reason</th>
+                            <th>More Info</th>
+                        </tr>
+                    </thead>
+                    
                     <tr>
-                        <th>Reimbursement ID</th>
-                        <th>Reimbursement Type</th>
-                        <th>Reimbursement Amount</th>
-                        <th>Status</th>
-                        <th>Reason</th>
-                        <th>More Info</th>
-                    </tr>
-                    <tr>
                         <td><input type="text" /></td>
                         <td><input type="text" /></td>
                         <td><input type="text" /></td>
                         <td><input type="text" /></td>
                         <td><input type="text" /></td>
-                        <td><button class="bttn">more info</button></td>
+                        <td><input type="text" /></td>
+
                     </tr>
                 </table>
 
                 <!--Buttons-->
-                <button type="button" class="btn">Add</button>
-                <button type="button" class="btn">View</button>
+                <button type="button" class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-primary">View</button>
             </div>
 
             <!-- Request Tab -->
             <div id="requestForm" class="tab-pane fade">
-                <table>
+                <table class="table">
                     <tr>
                         <th>Request ID</th>
                         <th>Requested by</th>
@@ -64,19 +68,20 @@
                         <th>More Info</th>
                     </tr>
                     <tr>
-                        <td><input type="text"></input></td>
-                        <td><input type="text"></input></td>
-                        <td><input type="text"></input></td>
-                        <td><input type="text"></input></td>
-                        <td><input type="text"></input></td>
-                        <td><input type="text"></input></td>
-                        <td><button class="bttn">more info</button></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+
                     </tr>
                 </table>
 
                 <!--Buttons-->
-                <button type="button" class="btn">Approve</button>
-                <button type="button" class="btn">Deny</button>
+                <button type="button" class="btn btn-primary">Approve</button>
+                <button type="button" class="btn btn-primary">Deny</button>
             </div>
         </div>
 
