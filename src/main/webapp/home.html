@@ -1,75 +1,86 @@
 <!DOCTYPE html>
-<html lang ="en">
-   <head>
-       <link rel="stylesheet" href="style.css">
-       <title> Home </title>
-   </head>
-   <body>
+<html lang="en">
+<head>
+    <!----<link rel="stylesheet" href="style.css"> -->
+    <title> Home </title>
 
-        <button id="menubutton" onclick="modal()">Menu</button>
-      <div> 
-        <a href="login.html" class="rightbutton"><button>Logout</button></a>
-        <center><h1>Tuition Reimbursement Management System</h1></center>
-      </div>
-      
-    <div id="mymodal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-          <h6>Create new Reimbursement Form</h6>
-          <h6>Create new Request Form</h6>
-          <h6>logout</h6>
-        </div>
-      </div>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-      <div class="split left">
-          <div>
-          <a href="ReimbursementForm.html" class="rightbutton"><button>Add New Reimbursement</button></a>
-        </div>
-          <table id="lefttable">
-            <tr>
-              <th>Reimbursement ID</th>
-              <th>Reimbursement Type</th>
-              <th>Reimbursement Amount</th>
-              <th>Status</th>
-              <th>Reason</th>
-              <th>More Info</th>
-            </tr>
-            <tr>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><button class="bttn">more info</button></td>
-            </tr>
-          </table>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <!-- Menu -->
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#reibursementForm">Reimbursement</a></li>
+            <li><a data-toggle="pill" href="#requestForm">Request</a></li>
+        </ul>
+
+        <!-- Reimbursement Tab -->
+        <div class="tab-content">
+            <div id="reibursementForm" class="tab-pane fade in active">
+                <!--Table-->
+                <table>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Reimbursement Type</th>
+                        <th>Reimbursement Amount</th>
+                        <th>Status</th>
+                        <th>Reason</th>
+                        <th>More Info</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><button class="bttn">more info</button></td>
+                    </tr>
+                </table>
+
+                <!--Buttons-->
+                <button type="button" class="btn">Add</button>
+                <button type="button" class="btn">View</button>
+            </div>
+
+            <!-- Request Tab -->
+            <div id="requestForm" class="tab-pane fade">
+                <table>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Requested by</th>
+                        <th>Requested to</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Attachment</th>
+                        <th>More Info</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text"></input></td>
+                        <td><input type="text"></input></td>
+                        <td><input type="text"></input></td>
+                        <td><input type="text"></input></td>
+                        <td><input type="text"></input></td>
+                        <td><input type="text"></input></td>
+                        <td><button class="bttn">more info</button></td>
+                    </tr>
+                </table>
+
+                <!--Buttons-->
+                <button type="button" class="btn">Approve</button>
+                <button type="button" class="btn">Deny</button>
+            </div>
         </div>
 
-        <div class="split right">
-          <div>
-          <a href="RequestForm.html" class="rightbutton"><button>Add New Request</button></a>
-        </div>
-          <table>
-            <tr>
-              <th>Request ID</th>
-              <th>Requested by</th>
-              <th>Requested to</th>
-              <th>Reason</th>
-              <th>Status</th>
-              <th>Attachment</th>
-              <th>More Info</th>
-            </tr>
-            <tr>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><input type="text"></input></td>
-              <td><button class="bttn">more info</button></td>
-            </tr>
-          </table>
-        </div>
-        <script type="text/javascript" src="home.js"></script>
-  </body>
+    </div>
+        
+</body>
 </html>
