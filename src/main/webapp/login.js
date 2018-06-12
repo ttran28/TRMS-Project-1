@@ -3,11 +3,11 @@ window.onload=function(){
 }
 
 function login(){
-	var un=document.getElementById("username").value;
-	var pw=document.getElementById("username").value;
+	var un=document.getElementsByClassName("form-control")[0].value;
+	var pw=document.getElementsByClassName("form-control")[1].value;
 	var xhr=new XMLHttpRequest();
 	xhr.onreadystatechange=function(){}
-	xhr.open("POST", "login", true);
+	xhr.open("POST", "/login", true);
 	xhr.setRequestHeader("username", un);
 	xhr.setRequestHeader("password", un);
 	xhr.send();

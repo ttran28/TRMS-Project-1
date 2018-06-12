@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import java.io.File;
 import java.sql.Date;
 
 public class Response {
@@ -9,6 +10,7 @@ public class Response {
 	private int receiver;
 	private Date responseDate;
 	private String response;
+	private File attachment;
 	
 	//An empty constructor
 	public Response() {
@@ -53,5 +55,13 @@ public class Response {
 	}
 	public void setResponse(String response) {
 		this.response = response;
+	}
+	
+	// Getter and setter methods for the attachment field
+	public File getAttachment() {
+		return attachment;
+	}
+	public void setAttachment(File attachment) {
+		this.attachment = attachment;
 	}
 }

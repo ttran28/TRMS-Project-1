@@ -38,10 +38,10 @@ public class FormServlet extends HttpServlet {
 			String address = req.getAttribute("eventaddress1") + ", " + req.getAttribute("eventcity") + ", " + req.getAttribute("eventstate") + 
 							 ", " + req.getAttribute("eventzip");
 		
-			Form form = convertForm((int) req.getAttribute("reimbursementtype"), ZonedDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()).toLocalDate(), 
-									((Date) req.getAttribute("eventdate")).toLocalDate(), address, req.getAttribute("eventdescription").toString(), 
-									(File) req.getAttribute("attachedfile"), (int) req.getAttribute("gradeformat"), 
-									(double) req.getAttribute("reimbursementamount"), sup, emp);
+			Form form = convertForm(Integer.parseInt(req.getParameter("reimbursementtype")), ZonedDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()).toLocalDate(), 
+									Date.valueOf(req.getParameter("eventdate")).toLocalDate(), address, req.getParameter("eventdescription"), 
+									(File) req.getAttribute("attachedfile"), Integer.parseInt(req.getParameter("gradeformat")), 
+									Double.parseDouble(req.getParameter("reimbursementamount")), sup, emp);
 			
 			fdi.createForm(form);
 		}catch(SQLException e) {

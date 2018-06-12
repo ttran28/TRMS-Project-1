@@ -12,25 +12,27 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
 
-/**
- * Servlet implementation class LoginServlet
- */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// Forwards get requests
 		req.getRequestDispatcher("login.html").forward(req, resp);
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("In login servlet...");
 		try {
+			// Retrieves any employees who match the username/password
 			EmployeeDAOImpl edi = new EmployeeDAOImpl();
 			Employee emp = edi.employeeLogin(req.getParameter("username"), req.getParameter("password"));
 			resp.setContentType("text/html");
 			
+			// Sends the user to the home screen if the username and password match an employee
 			if(emp.getId()!=0) {
 				req.getRequestDispatcher("/home").forward(req, resp);
 			}
+			// Lets the user know the username and password don't match any employee records
 			else {
 				PrintWriter pw = resp.getWriter();
 				pw.print("Username and password don't match!");
