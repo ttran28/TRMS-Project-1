@@ -35,15 +35,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 			emp.setAddress(rs.getString(3));
 			emp.setPhone(rs.getString(4));
 			emp.setEmail(rs.getString(5));
-			emp.setUsername(rs.getString(6));
-			emp.setPassword(rs.getString(7));
-			emp.setAvailableReimbursement(rs.getDouble(8));
-			emp.setSupervisorId(rs.getInt(9));
-			emp.setHeadId(rs.getInt(10));
-			emp.setBenCoId(rs.getInt(11));
-			emp.setSupervisor(rs.getBoolean(12));
-			emp.setHead(rs.getBoolean(13));
-			emp.setBenCo(rs.getBoolean(14));
+			emp.setPassword(rs.getString(6));
+			emp.setAvailableReimbursement(rs.getDouble(7));
+			emp.setSupervisorId(rs.getInt(8));
+			emp.setHeadId(rs.getInt(9));
+			emp.setBenCoId(rs.getInt(10));
+			emp.setSupervisor(rs.getBoolean(11));
+			emp.setHead(rs.getBoolean(12));
+			emp.setBenCo(rs.getBoolean(13));
 			
 			employees.add(emp);
 		}
@@ -73,15 +72,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 			emp.setAddress(rs.getString(3));
 			emp.setPhone(rs.getString(4));
 			emp.setEmail(rs.getString(5));
-			emp.setUsername(rs.getString(6));
-			emp.setPassword(rs.getString(7));
-			emp.setAvailableReimbursement(rs.getDouble(8));
-			emp.setSupervisorId(rs.getInt(9));
-			emp.setHeadId(rs.getInt(10));
-			emp.setBenCoId(rs.getInt(11));
-			emp.setSupervisor(rs.getBoolean(12));
-			emp.setHead(rs.getBoolean(13));
-			emp.setBenCo(rs.getBoolean(14));
+			emp.setPassword(rs.getString(6));
+			emp.setAvailableReimbursement(rs.getDouble(7));
+			emp.setSupervisorId(rs.getInt(8));
+			emp.setHeadId(rs.getInt(9));
+			emp.setBenCoId(rs.getInt(10));
+			emp.setSupervisor(rs.getBoolean(11));
+			emp.setHead(rs.getBoolean(12));
+			emp.setBenCo(rs.getBoolean(13));
 		}
 		
 		// Closes the database connection and returns emp
@@ -97,7 +95,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		Employee emp = new Employee();
 						
 		// Prepares the SQL resources
-		String sql = "SELECT * FROM EMPID WHERE EMPUSERNAME = ? AND EMPPASSWORD = ?";
+		String sql = "SELECT * FROM EMPID WHERE EMPEMAIL = ? AND EMPPASSWORD = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, username);
 		stmt.setString(2, password);
@@ -110,15 +108,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 			emp.setAddress(rs.getString(3));
 			emp.setPhone(rs.getString(4));
 			emp.setEmail(rs.getString(5));
-			emp.setUsername(rs.getString(6));
-			emp.setPassword(rs.getString(7));
-			emp.setAvailableReimbursement(rs.getDouble(8));
-			emp.setSupervisorId(rs.getInt(9));
-			emp.setHeadId(rs.getInt(10));
-			emp.setBenCoId(rs.getInt(11));
-			emp.setSupervisor(rs.getBoolean(12));
-			emp.setHead(rs.getBoolean(13));
-			emp.setBenCo(rs.getBoolean(14));
+			emp.setPassword(rs.getString(6));
+			emp.setAvailableReimbursement(rs.getDouble(7));
+			emp.setSupervisorId(rs.getInt(8));
+			emp.setHeadId(rs.getInt(9));
+			emp.setBenCoId(rs.getInt(10));
+			emp.setSupervisor(rs.getBoolean(11));
+			emp.setHead(rs.getBoolean(12));
+			emp.setBenCo(rs.getBoolean(13));
 		}
 				
 		// Closes the database connection and returns emp
@@ -148,15 +145,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 			emp.setAddress(rs.getString(3));
 			emp.setPhone(rs.getString(4));
 			emp.setEmail(rs.getString(5));
-			emp.setUsername(rs.getString(6));
-			emp.setPassword(rs.getString(7));
-			emp.setAvailableReimbursement(rs.getDouble(8));
-			emp.setSupervisorId(rs.getInt(9));
-			emp.setHeadId(rs.getInt(10));
-			emp.setBenCoId(rs.getInt(11));
-			emp.setSupervisor(rs.getBoolean(12));
-			emp.setHead(rs.getBoolean(13));
-			emp.setBenCo(rs.getBoolean(14));
+			emp.setPassword(rs.getString(6));
+			emp.setAvailableReimbursement(rs.getDouble(7));
+			emp.setSupervisorId(rs.getInt(8));
+			emp.setHeadId(rs.getInt(9));
+			emp.setBenCoId(rs.getInt(10));
+			emp.setSupervisor(rs.getBoolean(11));
+			emp.setHead(rs.getBoolean(12));
+			emp.setBenCo(rs.getBoolean(13));
 			
 			employees.add(emp);
 		}

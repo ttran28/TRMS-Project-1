@@ -7,7 +7,6 @@ public class Employee {
 	private String address;
 	private String phone;
 	private String email;
-	private String username;
 	private String password;
 	private double availableReimbursement;
 	private int supervisorId;
@@ -60,14 +59,6 @@ public class Employee {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	// Getter and setter methods for the username field
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	// getter and setter methods for the password field

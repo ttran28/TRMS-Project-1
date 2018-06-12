@@ -13,19 +13,11 @@ public class Controller extends HttpServlet{
 	private FormServlet formServ;
 	private HomeServlet homeServ;
 	private LoginServlet loginServ;
-	private ResponseServlet respServ;
-	private SubmitServlet submitServ;
 	
 	public Controller() {
 		formServ = new FormServlet();
 		homeServ = new HomeServlet();
 		loginServ = new LoginServlet();
-		respServ = new ResponseServlet();
-		submitServ = new SubmitServlet();
-	}
-	
-	private void track(String req) {
-		System.out.println("Requesting page: " + req);
 	}
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -38,23 +30,24 @@ public class Controller extends HttpServlet{
 	
 	private void dispatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		if(req.getRequestDispatcher("/home") != null) {
-			req.getRequestDispatcher("/home").forward(req, resp);
+			homeServ.init();
+			homeServ.service(req, resp);
+			homeServ.destroy();
 		}
 		if(req.getRequestDispatcher("/login") != null) {
-			req.getRequestDispatcher("/login").forward(req, resp);
+			loginServ.init();
+			loginServ.service(req, resp);
+			loginServ.destroy();
 		}
 		if(req.getRequestDispatcher("/form") != null) {
-			req.getRequestDispatcher("/form").forward(req, resp);
-		}
-		if(req.getRequestDispatcher("/submit") != null) {
-			req.getRequestDispatcher("/submit").forward(req, resp);
-		}
-		if(req.getRequestDispatcher("/response") != null) {
-			req.getRequestDispatcher("/response").forward(req, resp);
+			formServ.init();
+			formServ.service(req, resp);
+			formServ.destroy();
 		}
 	}
 	
-	public void respond(HttpServletResponse resp) throws ServletException, IOException{
-		
+	// Sends the response back to the html page
+	public static void respond(HttpServletResponse resp, String response) throws ServletException, IOException{
+		resp.getWriter().write(response);
 	}
 }

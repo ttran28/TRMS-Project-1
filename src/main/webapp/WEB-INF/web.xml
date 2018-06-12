@@ -2,13 +2,19 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ReimbursementSystem</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>login.html</welcome-file>
+    <welcome-file>login.html</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Controller</display-name>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>com.revature.servlet.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/controller</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>HomeServlet</display-name>
@@ -37,26 +43,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FormServlet</servlet-name>
-    <url-pattern>/form</url-pattern>
+    <url-pattern>/reimbursementform</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ReimbursementServlet</display-name>
-    <servlet-name>ReimbursementServlet</servlet-name>
-    <servlet-class>com.revature.servlet.FormServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ReimbursementServlet</servlet-name>
-    <url-pattern>/reimbursement</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>RequestServlet</display-name>
-    <servlet-name>RequestServlet</servlet-name>
+    <display-name>ResponseServlet</display-name>
+    <servlet-name>ResponseServlet</servlet-name>
     <servlet-class>com.revature.servlet.ResponseServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RequestServlet</servlet-name>
-    <url-pattern>/request</url-pattern>
+    <servlet-name>ResponseServlet</servlet-name>
+    <url-pattern>/response</url-pattern>
   </servlet-mapping>
 </web-app>
