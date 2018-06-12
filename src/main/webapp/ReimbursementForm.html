@@ -26,7 +26,10 @@
             </div>
 
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
+                <!-- Add Links !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <li><a href="#">Home</a></li> 
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">View History</a></li>
             </ul>
 
             <!-- Login and Logout -->
@@ -50,56 +53,63 @@
 
                         <!-- Event Type -->
                         <div class="form-group">
-                            <label for="reimbursementtype">Event Type</label>
+                            <label for="reimbursementtype">Event Type:</label>
                             <select class="form-control" id="reimbursementtype" required="required">
-                                <option>Certification</option>
-                                <option>Certification Preparation Classes</option>
-                                <option>Seminars</option>
-                                <option>Technical Training</option>
-                                <option>University Courses</option>
+                                <option id="cert" value="203">Certification</option>
+                                <option id="certprepclass" value="202">Certification Preparation Classes</option>
+                                <option id="seminar" value="201">Seminars</option>
+                                <option id="techtrain" value="204">Technical Training</option>
+                                <option id="unicourse" value="200">University Courses</option>
+                                <option id="others" value="205">Others</option>
                             </select>
                         </div>
 
 
                         <!-- Event Date -->
                         <div class="form-group">
-                            <label for="eventdate">Event Date</label>
+                            <label for="eventdate">Event Date:</label>
                             <input type="date" class="form-control" id="eventdate" required="required">
                         </div>
 
                         <!-- Event Description -->
                         <div class="form-group">
-                            <label for="eventdescription">Event Description</label>
+                            <label for="eventdescription">Event Description:</label>
                             <input type="text" class="form-control" id="eventdescription" placeholder="Enter work related justification." required="required">
                         </div>
 
                         <!-- Event Location -->
                         <div class="form-group">
                             <!-- Address 1 -->
-                            <label for="eventaddress1">Event Address</label>
+                            <label for="eventaddress1">Event Address:</label>
                             <input type="text" class="form-control" id="eventaddress1" placeholder="Enter address." required="required">
 
                             <!-- City -->
-                            <label for="eventcity">Event City</label>
+                            <label for="eventcity">Event City:</label>
                             <input type="text" class="form-control" id="eventcity" placeholder="Enter city." required="required">
 
                             <!-- State -->
-                            <label for="eventstate">Event State</label>
+                            <label for="eventstate">Event State:</label>
                             <input type="text" class="form-control" id="eventstate" placeholder="Enter state." minlength="2" maxlength="2" required="required">
 
                             <!-- Zip Code -->
-                            <label for="eventzip">Event Zip Code</label>
+                            <label for="eventzip">Event Zip Code:</label>
                             <input type="number" class="form-control" id="eventzip" maxlength="5" placeholder="Enter zipcode." required="required">
+                        </div>
+
+                        <!-- Reimbursement Cost -->
+                        <div class="form-group">
+                            <label for="reimbursementcost">Request Amount:</label>
+                            <input type="number" class="form-control" id="reimbursementcost" max="1000" placeholder="Enter amount." required="required">
                         </div>
 
                         <!-- Reimbursement Amount -->
                         <div class="form-group">
-                            <label for="reimbursementamount">Reimbursement Amount:</label>
-                            <input type="number" class="form-control" id="reimbursementamount" max="1000" placeholder="Enter amount." required="required">
+                            <label for="reimbursementamount">Calculated Reimbursement Amount:</label>
+                            <input type="number" class="form-control" id="reimbursementamount" max="1000" disabled="disabled">
                         </div>
 
                         <!-- File Attachment -->
-                        <label for="attachedfile">Attach Supporting Document</label>
+                        <label for="attachedfile">Attach Supporting Document:</label>
                         <input type="file" id="attachedfile" name="attachedfile" accept=".pdf, .png, .jpeg, .jpg, .txt, .doc, .msg" />
                         <br />
                         <!-- Submit -->
