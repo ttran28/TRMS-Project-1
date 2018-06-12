@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Home</a></li>
                 <li class="active"><a href="reimbursementform.html">Reimbursement Form</a></li>
-                <li><a href="#">View Status</a></li>
+                <li><a href="#">View Requests</a></li>
             </ul>
 
             <!-- Login and Logout -->
@@ -39,39 +39,69 @@
         </div>
     </nav>
 
-    <!-- Reimbursement Form -->
-    <h1>Reimbursement Form</h1>
-    <form id="reimbursementform" action="">
-        <!-- Event Type -->
-        <div class="form-group">
-            <label for="reimbursementtype">Event Type:</label>
-            <select class="form-control" id="reimbursementtype" required="required">
-                <option>Certification</option>
-                <option>Certification Preparation Classes</option>
-                <option>Seminars</option>
-                <option>Technical Training</option>
-                <option>University Courses</option>
-            </select>
+    <div id="divlogin" class="panel-default">
+        <div class="panel-body">
+            <!-- Reimbursement Form -->
+            <h1>Reimbursement Form</h1>
+            <form id="reimbursementform" action="">
+                <!-- Employee ID -->
+                <input type="hidden" id="employeeid" name="employeeid" value="" />
+
+                <!-- Event Type -->
+                <div class="form-group">
+                    <label for="reimbursementtype">Event Type</label>
+                    <select class="form-control" id="reimbursementtype" required="required">
+                        <option>Certification</option>
+                        <option>Certification Preparation Classes</option>
+                        <option>Seminars</option>
+                        <option>Technical Training</option>
+                        <option>University Courses</option>
+                    </select>
+                </div>
+
+
+                <!-- Event Date -->
+                <div class="form-group">
+                    <label for="eventdate">Event Date</label>
+                    <input type="date" class="form-control" id="eventdate" required="required">
+                </div>
+
+                <!-- Event Description -->
+                <div class="form-group">
+                    <label for="eventdescription">Event Description</label>
+                    <input type="text" class="form-control" id="eventdescription" placeholder="Java OCA" required="required">
+                </div>
+
+                <!-- Event Location -->
+                <div class="form-group">
+                    <!-- Address 1 -->
+                    <label for="eventaddress1">Event Address</label>
+                    <input type="text" class="form-control" id="eventaddress1" placeholder="4202 E Fowler Ave" required="required">
+
+                    <!-- City -->
+                    <label for="eventcity">Event City</label>
+                    <input type="text" class="form-control" id="eventcity" placeholder="Tampa" required="required">
+
+                    <!-- State -->
+                    <label for="eventstate">Event State</label>
+                    <input type="text" class="form-control" id="eventstate" placeholder="FL" minlength="2" maxlength="2" required="required">
+
+                    <!-- Zip Code -->
+                    <label for="eventzip">Event Zip Code</label>
+                    <input type="number" class="form-control" id="eventzip" maxlength="10" placeholder="33620" required="required">
+                </div>
+
+                <!-- Reimbursement Amount -->
+                <div class="form-group">
+                    <label for="reimbursementamount">Reimbursement Amount:</label>
+                    <input type="number" class="form-control" id="reimbursementamount" max="1000" placeholder="245.00" required="required">
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn-default btn-block">Submit</button>
+
+            </form>
         </div>
-
-        <!-- Employee ID -->
-        <input type="hidden" id="employeeid" name="employeeid" value="" />
-
-        <!-- Event Date -->
-        <div class="form-group">
-            <label for="eventdate">Event Date:</label>
-            <input type="date" class="form-control" id="eventdate" required="required">
-        </div>
-
-        <!-- Reimbursement Amount -->
-        <div class="form-group">
-            <label for="reimbursementamount">Reimbursement Amount:</label>
-            <input type="number" class="form-control" id="reimbursementamount" min=".01" max="1000" placeholder="0.00" required="required">
-        </div>
-
-        <!-- Submit -->
-        <button type="submit" class="btn btn-default">Submit</button>
-
-    </form>
+    </div>
 </body>
 </html>
