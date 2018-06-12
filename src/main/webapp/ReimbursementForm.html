@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Reimbursement Form</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,12 +22,19 @@
         <div class="container-fluid">
             <!-- Company Brand Name -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">DJ MA Tuition Reimbursement Managment System</a>
+                <a class="navbar-brand" href="#">DJ MA TRMS</a>
             </div>
 
-            <!-- Logout -->
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="reimbursementform.html">Reimbursement Form</a></li>
+                <li><a href="#">View Status</a></li>
+            </ul>
+
+            <!-- Login and Logout -->
             <ul class="nav navbar-nav navbar-right">
-                <li id="logout"><a href="#"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+                <li><a href="login.html">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+                <li id="logout"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -46,6 +53,9 @@
                 <option>University Courses</option>
             </select>
         </div>
+
+        <!-- Employee ID -->
+        <input type="hidden" id="employeeid" name="employeeid" value="" />
 
         <!-- Event Date -->
         <div class="form-group">
