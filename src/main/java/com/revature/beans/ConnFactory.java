@@ -1,12 +1,8 @@
 package com.revature.beans;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class ConnFactory {
 	// Holds the single instance of ConnFactory allowed
@@ -37,9 +33,7 @@ public class ConnFactory {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			// Establishes the connection using the properties file
-			conn = DriverManager.getConnection(info[0], 
-											   info[1], 
-											   info[2]);
+			conn = DriverManager.getConnection(info[0], info[1], info[2]);
 		// Executes if a connection couldn't be established with the database
 	   	}catch(SQLException | ClassNotFoundException e) {
 	   		System.out.println("Couldn't connect to database!");

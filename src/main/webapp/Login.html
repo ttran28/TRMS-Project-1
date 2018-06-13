@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +20,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -43,13 +47,13 @@
                         <!-- E-mail Address -->
                         <div class="form-group">
                             <label for="email">E-mail:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter e-mail address." required="required" />
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter e-mail address." required="required" />
                         </div>
 
                         <!-- Password -->
                         <div class="form-group">
                             <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter password." required="required" />
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password." required="required" />
                         </div>
 
                         <!-- Submit -->

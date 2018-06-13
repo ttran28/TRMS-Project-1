@@ -27,14 +27,22 @@ public class LoginServlet extends HttpServlet {
 			String[] info = getServletContext().getInitParameter("dbInfo").split(",");
 			// Retrieves any employees who match the username/password
 			EmployeeDAOImpl edi = new EmployeeDAOImpl(info);
-			Employee emp = edi.employeeLogin(req.getParameter("username"), req.getParameter("password"));
+			Employee emp = edi.employeeLogin(req.getParameter("email"), req.getParameter("password"));
 			resp.setContentType("text/html");
 			
 			// Sends the user to the home screen if the username and password match an employee
 			if(emp.getId()!=0) {
+<<<<<<< HEAD
 				req.setAttribute("employeeID", emp.getId());
 				//RequestDispatcher rd = req.getRequestDispatcher("yourServletPattern");
 				//rd.forward(request,response);
+=======
+				PrintWriter pw = resp.getWriter();
+				resp.setContentType("text/html");
+				pw.println("<?php>");
+				pw.println("$_SESSION[\"userid\"]=\"" + emp.getId() + "\";");
+				pw.println("?>");
+>>>>>>> 97f2f54ccf24fce2215e6f4060fc23556b421197
 				req.getRequestDispatcher("/home.html").forward(req, resp);
 			}
 			// Lets the user know the username and password don't match any employee records
