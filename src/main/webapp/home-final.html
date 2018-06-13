@@ -89,7 +89,9 @@
                 </tr>
             </table>
         </div>
-        <!-- Button -->
+		
+		<a href="reimbursementform.html"><button class="btn btn-success btn-sm">Create New Reimbursement Request</button></a>
+        <!-- Button Modal-->
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">View More Info</button>
 
         <h1>Requests</h1>
@@ -190,7 +192,9 @@
                         </form>
 
                         <br />
-                        <button>Close the Request</button>
+						<br/>
+						<p>Add a confirmation if they want to close the request. Are you sure? This will remove the request foreeeeeever.  Go back to modal if cancel. Go back to home page if continue and then request is closed.</p>
+                        <button onclick="funcAreYouSure()">Close the Request</button>
 
 
 
@@ -204,7 +208,11 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="requeststable.js"></script>
+    <script type="text/javascript">
+		function funcAreYouSure(){
+			alert("Are you sure?");
+		}
+	</script>
 
 
 </body>
