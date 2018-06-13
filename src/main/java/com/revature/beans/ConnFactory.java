@@ -30,8 +30,6 @@ public class ConnFactory {
 	public Connection getConnection(String[] info) {
 		// Creates a Connection object
 		Connection conn = null;
-		System.out.println(info[1]);
-		System.out.println(info[2]);
 		
 		// Attempts to establish a connection with the database
 		try {
