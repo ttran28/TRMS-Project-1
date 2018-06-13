@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<!-- Session Start -->
+<?php
+session_start();
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Reimbursement Form</title>
@@ -17,6 +21,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <!-- Session User ID -->
+    <?php
+    var userid=echo $_SESSION["userid"];
+    ?>
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -27,13 +36,12 @@
 
             <ul class="nav navbar-nav">
                 <!-- Add Links !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-                <li><a href="home-final.html">Home</a></li> 
-                
+                <li><a href="home.html">Home</a></li>
             </ul>
 
             <!-- Login and Logout -->
             <ul class="nav navbar-nav navbar-right">
-                <li id="logout"><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li id="logout"><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
