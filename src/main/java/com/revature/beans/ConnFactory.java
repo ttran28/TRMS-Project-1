@@ -1,4 +1,4 @@
-package com.revature.util;
+package com.revature.beans;
 
 import java.io.File;
 import java.io.FileReader;
@@ -23,23 +23,6 @@ public class ConnFactory {
 	private ConnFactory() {
 		super();
 	}
-	
-	public ConnFactory(String dbUrl, String username, String password) {
-		this.dbURL = dbUrl;
-		this.dbUsername = username;
-		this.dbPassword = password;
-		
-		ds = setupDataSource();
-	}
-	
-	public DataSource setupDataSource() {
-        BasicDataSource ds = new BasicDataSource();
-        ds.setUsername(this.dbUsername);
-        ds.setPassword(this.dbPassword);
-        ds.setUrl(this.dbURL);
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        return ds;
-    }
 		
 	// Retrieves the instance of ConnFactory
 	public static synchronized ConnFactory getInstance() {

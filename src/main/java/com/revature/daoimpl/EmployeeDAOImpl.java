@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.beans.ConnFactory;
 import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDAO;
-import com.revature.util.ConnFactory;
 
 public class EmployeeDAOImpl implements EmployeeDAO{
 

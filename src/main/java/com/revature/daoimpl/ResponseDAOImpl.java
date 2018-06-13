@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.beans.ConnFactory;
 import com.revature.beans.Response;
 import com.revature.dao.ResponseDAO;
-import com.revature.util.ConnFactory;
 
 public class ResponseDAOImpl implements ResponseDAO{
 	

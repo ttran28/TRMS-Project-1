@@ -14,9 +14,9 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+import com.revature.beans.ConnFactory;
 import com.revature.beans.Form;
 import com.revature.dao.FormDAO;
-import com.revature.util.ConnFactory;
 
 public class FormDAOImpl implements FormDAO{
 
