@@ -35,7 +35,7 @@ public class ConnFactory {
 		try {
 			// Loads the database properties folder
 			Properties prop = new Properties();
-			prop.load(new FileReader(new File("database.properties")));
+			prop.load(new FileReader(new File("src/main/resources/database.properties")));
 			
 			//Retrieves the necessary database driver
 			Class.forName(prop.getProperty("driver"));
