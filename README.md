@@ -12,4 +12,3 @@ Head of Midware Design: Thomas Loyd
 Team Name: DJ-MA
 
 Project Deadline: June 14, 2018 at 5pm
-
