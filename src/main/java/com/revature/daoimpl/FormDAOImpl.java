@@ -32,12 +32,11 @@ public class FormDAOImpl implements FormDAO{
 		Connection conn = cf.getConnection(info);
 		
 		// Create a callable statement to insert a new form into the database
-		String sql = "call CREATE_REQUEST{?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?}";
+		String sql = "call CREATE_REQUEST{?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?}";
 		CallableStatement stmt = conn.prepareCall(sql);
 		
 		stmt.setInt(1, form.getEventId());
-		stmt.setDate(2, form.getSubmissionDate());
-		stmt.setDate(3, form.getEventDate());
+		stmt.setString(3, form.getEventDate());
 		stmt.setString(4, form.getEventLocation());
 		stmt.setString(5, form.getEventDesc());
 		stmt.setBlob(6, (Blob) form.getWrj());
@@ -68,8 +67,8 @@ public class FormDAOImpl implements FormDAO{
 		
 		stmt.setInt(1, form.getId());
 		stmt.setInt(2, form.getEventId());
-		stmt.setDate(3, form.getSubmissionDate());
-		stmt.setDate(4, form.getEventDate());
+		stmt.setString(3, form.getSubmissionDate());
+		stmt.setString(4, form.getEventDate());
 		stmt.setString(5, form.getEventLocation());
 		stmt.setString(6, form.getEventDesc());
 		stmt.setBlob(7, (Blob) form.getWrj());
@@ -99,14 +98,14 @@ public class FormDAOImpl implements FormDAO{
 		String sql = "SELECT * FROM FORMID WHERE FORMID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 		
 		// Puts the request information into form
 		while(rs.next()) {
 			form.setId(rs.getInt(1));
 			form.setEventId(rs.getInt(2));
-			form.setSubmissionDate(rs.getDate(3));
-			form.setEventDate(rs.getDate(4));
+			form.setSubmissionDate(rs.getString(3));
+			form.setEventDate(rs.getString(4));
 			form.setEventLocation(rs.getString(5));
 			form.setEventDesc(rs.getString(6));
 			
@@ -149,7 +148,7 @@ public class FormDAOImpl implements FormDAO{
 		String sql = "SELECT FORMID FROM EMPID_FORMID WHERE EMPID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 						
 		// Retrieves the forms in the database that match an employee's id and puts them in the forms list
 		while(rs.next()) {
@@ -174,7 +173,7 @@ public class FormDAOImpl implements FormDAO{
 		String sql = "SELECT FORMGRDFORMAT FROM FORMGRDFORMATID WHERE FORMGRDFORMATID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 		
 		// Retrieves the requested information from the database and stores them in format
 		while(rs.next()) {
@@ -197,7 +196,7 @@ public class FormDAOImpl implements FormDAO{
 		String sql = "SELECT FORMSTATUS FROM FORMSTATUSCODE WHERE FORMSTATUSCODE = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 				
 		// Retrieves the requested information from the database and stores it in status
 		while(rs.next()) {

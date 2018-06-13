@@ -1,14 +1,13 @@
 package com.revature.beans;
 
 import java.io.File;
-import java.sql.Date;
 
 public class Response {
 	// Values stored in a Response object
 	private int id;
 	private int sender;
 	private int receiver;
-	private Date responseDate;
+	private String responseDate;
 	private String response;
 	private File attachment;
 	
@@ -42,10 +41,10 @@ public class Response {
 	}
 
 	// Getter and setter methods for the responseDate field
-	public Date getResponseDate() {
+	public String getResponseDate() {
 		return responseDate;
 	}
-	public void setResponseDate(Date responseDate) {
+	public void setResponseDate(String responseDate) {
 		this.responseDate = responseDate;
 	}
 

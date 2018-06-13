@@ -1,14 +1,13 @@
 package com.revature.beans;
 
 import java.io.File;
-import java.sql.Date;
 
 public class Form {
 	// The values stored in a Form object
 	private int id;
 	private int eventId;
-	private Date submissionDate;
-	private Date eventDate;
+	private String submissionDate;
+	private String eventDate;
 	private String eventLocation;
 	private String eventDesc;
 	private File wrj;
@@ -44,18 +43,18 @@ public class Form {
 	}
 
 	// Getter and setter methods for the submissionDate field
-	public Date getSubmissionDate() {
+	public String getSubmissionDate() {
 		return submissionDate;
 	}
-	public void setSubmissionDate(Date submissionDate) {
+	public void setSubmissionDate(String submissionDate) {
 		this.submissionDate = submissionDate;
 	}
 
 	// Getter and setter methods for the eventDate field
-	public Date getEventDate() {
+	public String getEventDate() {
 		return eventDate;
 	}
-	public void setEventDate(Date eventDate) {
+	public void setEventDate(String eventDate) {
 		this.eventDate = eventDate;
 	}
 

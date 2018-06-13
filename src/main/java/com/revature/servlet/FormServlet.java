@@ -6,9 +6,7 @@ import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,8 +37,8 @@ public class FormServlet extends HttpServlet {
 			String address = req.getAttribute("eventaddress1") + ", " + req.getAttribute("eventcity") + ", " + req.getAttribute("eventstate") + 
 							 ", " + req.getAttribute("eventzip");
 		
-			Form form = convertForm(Integer.parseInt(req.getParameter("reimbursementtype")), ZonedDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()).toLocalDate(), 
-									Date.valueOf(req.getParameter("eventdate")).toLocalDate(), address, req.getParameter("eventdescription"), 
+			Form form = convertForm(Integer.parseInt(req.getParameter("reimbursementtype")),  
+									Date.valueOf(req.getParameter("eventdate")).toLocalDate().toString(), address, req.getParameter("eventdescription"), 
 									(File) req.getAttribute("attachedfile"), Integer.parseInt(req.getParameter("gradeformat")), 
 									Double.parseDouble(req.getParameter("reimbursementamount")), sup, emp);
 			
@@ -53,13 +51,12 @@ public class FormServlet extends HttpServlet {
 		}
 	}
 
-	private Form convertForm(int id, LocalDate submitDate, LocalDate eventDate, String location, String desc, File wrj,
+	private Form convertForm(int id, String eventDate, String location, String desc, File wrj,
 							 int gradeFormat, double amount, Employee sup, Employee emp) {
 		Form form = new Form();
 		
 		form.setEventId(id);
-		form.setSubmissionDate(Date.valueOf(submitDate));
-		form.setEventDate(Date.valueOf(eventDate));
+		form.setEventDate(eventDate);
 		form.setEventLocation(location);
 		form.setEventDesc(desc);
 		form.setWrj(wrj);
@@ -69,7 +66,7 @@ public class FormServlet extends HttpServlet {
 		form.setReimbursementAmount(amount);
 		form.setAmountStatus(1);
 		// Determines if the request is urgent, the event being under a week away
-		if(submitDate.until(eventDate).minusDays(7).isZero() || submitDate.until(eventDate).minusDays(7).isNegative())
+		if(Instant.now().until(Date.valueOf(eventDate).toLocalDate(), ChronoUnit.DAYS) < 7)
 			form.setUrgent(true);
 		else
 			form.setUrgent(false);

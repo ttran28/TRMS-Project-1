@@ -98,12 +98,12 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		ConnFactory cf = ConnFactory.getInstance();
 		Connection conn = cf.getConnection(info);
 		Employee emp = new Employee();
-		System.out.println(username);
-		System.out.println("password");
 						
 		// Prepares the SQL resources
 		String sql = "SELECT * FROM EMPID WHERE EMPEMAIL = ? AND EMPPASSWORD = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, username);
+		stmt.setString(2, password);
 		ResultSet rs = stmt.executeQuery();
 				
 		//Puts the retrieved employee information into emp
