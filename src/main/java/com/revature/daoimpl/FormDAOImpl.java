@@ -19,12 +19,17 @@ import com.revature.beans.Form;
 import com.revature.dao.FormDAO;
 
 public class FormDAOImpl implements FormDAO{
+	private String[] info;
+	
+	public FormDAOImpl(String[] info) {
+		this.info = info;
+	}
 
 	@Override
 	public void createForm(Form form) throws SQLException {
 		// Retrieve the ConnFactory instance and create a database connection
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection();
+		Connection conn = cf.getConnection(info);
 		
 		// Create a callable statement to insert a new form into the database
 		String sql = "call CREATE_REQUEST{?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?}";
@@ -55,7 +60,7 @@ public class FormDAOImpl implements FormDAO{
 	public void updateForm(Form form) throws SQLException {
 		// Retrieve the ConnFactory instance and create a database connection
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection();
+		Connection conn = cf.getConnection(info);
 				
 		// Create a callable statement to update a form in the database
 		String sql = "call UPDATE_REQUEST{?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?}";
@@ -87,7 +92,7 @@ public class FormDAOImpl implements FormDAO{
 	public Form retrieveForm(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates an empty form
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection();
+		Connection conn = cf.getConnection(info);
 		Form form = new Form();
 		
 		// Prepares the SQL statement
@@ -137,7 +142,7 @@ public class FormDAOImpl implements FormDAO{
 	public List<Form> retrieveForms(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store forms
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection();
+		Connection conn = cf.getConnection(info);
 		List<Form> forms = new ArrayList<>();
 						
 		// Prepares the SQL resources
@@ -162,7 +167,7 @@ public class FormDAOImpl implements FormDAO{
 	public List<String> retrieveGradeFormat(int id) throws SQLException{
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store Strings
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection();
+		Connection conn = cf.getConnection(info);
 		List<String> format = new ArrayList<>();
 		
 		// Prepares the SQL resources
@@ -185,7 +190,7 @@ public class FormDAOImpl implements FormDAO{
 	public String retrieveFormStatus(int id) throws SQLException{
 		// Retrieves the ConnFactory instance to create a database connection and creates an empty String to store the information
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection();
+		Connection conn = cf.getConnection(info);
 		String status = null;
 				
 		// Prepares the SQL resources

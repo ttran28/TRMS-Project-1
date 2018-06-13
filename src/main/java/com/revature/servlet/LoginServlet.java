@@ -23,8 +23,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("In login servlet...");
 		try {
+			String[] info = getServletContext().getInitParameter("dbInfo").split(",");
 			// Retrieves any employees who match the username/password
-			EmployeeDAOImpl edi = new EmployeeDAOImpl();
+			EmployeeDAOImpl edi = new EmployeeDAOImpl(info);
 			Employee emp = edi.employeeLogin(req.getParameter("username"), req.getParameter("password"));
 			resp.setContentType("text/html");
 			

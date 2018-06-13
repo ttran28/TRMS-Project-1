@@ -5,6 +5,10 @@
     <welcome-file>login.html</welcome-file>
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
+  <context-param>
+  	<param-name>dbInfo</param-name>
+  	<param-value>jdbc:oracle:thin:@djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com:1521:ORCL,RevatureDJMA,R3vature!R0ck5</param-value>
+  </context-param>
   <servlet>
     <description></description>
     <display-name>HomeServlet</display-name>
