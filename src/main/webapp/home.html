@@ -1,7 +1,4 @@
-<!-- Session Start -->
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +12,12 @@ session_start();
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Override navbar default css bg color -->
+    <link rel="stylesheet" href="nav.css" />
 </head>
-<body >
-    <!-- Session User ID -->
-	<?php
-		var userid=echo $_SESSION["userid"];
-	?>
+<body>
+  
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse">
@@ -30,14 +27,11 @@ session_start();
                 <a class="navbar-brand" href="home-final.html">DJ MA Tuition Reimbursement Managment System</a>
             </div>
 
-            <ul class="nav navbar-nav">
-                <li><a href="home.html">Home</a></li>
-            </ul>
-
             <!-- Logout -->
             <ul class="nav navbar-nav navbar-right">
                 <li id="employeeID" class="navbar-text"><span>Employee ID:</span></li>
-                <li id="logout"><a href="logout.php"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+                <!-- Sesson Logout"-->
+                <li id="logout"><a href="login.html"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
             </ul>
         </div>
     </nav>
@@ -47,7 +41,7 @@ session_start();
         <!-- Submitted Form -->
         <h1>Submitted Form</h1>
         <div class="split2 right" data-spy="scroll">
-            <table id="lefttable" class="table table-striped table-hover"  >
+            <table id="lefttable" class="table table-striped table-hover table-responsive">
                 <thead>
                     <tr>
                         <th>Form ID</th>
@@ -101,12 +95,17 @@ session_start();
                 </tr>
             </table>
         </div>
-        <!-- Button -->
+
+        <!-- Button to Add New Form -->
+        <a href="reimbursementform.html"><button class="btn btn-success btn-sm">Create New Reimbursement Request</button></a>
+
+        <!-- Button Modal for Submitted Request -->
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">View More Info</button>
+
 
         <h1>Requests</h1>
         <div class="split2 right" data-spy="scroll">
-            <table id="lefttable" class="table table-striped table-hover" >
+            <table id="lefttable" class="table table-striped table-hover table-responsive">
                 <thead>
                     <tr>
                         <th>Sender ID:</th>
