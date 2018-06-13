@@ -27,25 +27,19 @@ public class ConnFactory {
 	}
 		
 	// Creates and returns a Connection to the database
-	public Connection getConnection() {
+	public Connection getConnection(String url, String username, String password) {
 		// Creates a Connection object
 		Connection conn = null;
 		
 		// Attempts to establish a connection with the database
 		try {
-			// Loads the database properties folder
-			Properties prop = new Properties();
-			prop.load(new FileReader(new File("src/main/resources/database.properties")));
-			
 			//Retrieves the necessary database driver
-			Class.forName(prop.getProperty("driver"));
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			// Establishes the connection using the properties file
-			conn = DriverManager.getConnection(prop.getProperty("url"), 
-											   prop.getProperty("usr"), 
-											   prop.getProperty("password"));
+			conn = DriverManager.getConnection(url, username, password);
 		// Executes if a connection couldn't be established with the database
-	   	}catch(SQLException | IOException | ClassNotFoundException e) {
+	   	}catch(SQLException | ClassNotFoundException e) {
 	   		System.out.println("Couldn't connect to database!");
 	   		e.printStackTrace();
 	   	}
