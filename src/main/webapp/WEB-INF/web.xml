@@ -5,6 +5,25 @@
     <welcome-file>login.html</welcome-file>
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
+  <context-param>
+      	     <param-name>DBHOST</param-name>
+      	     <param-value>djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com</param-value>
+      </context-param>
+      
+       <context-param>
+      	     <param-name>DBNAME</param-name>
+      	     <param-value>djmarevature</param-value>
+      </context-param>
+
+       <context-param>
+      	     <param-name>DBUSERNAME</param-name>
+      	     <param-value>RevatureDJMA</param-value>
+      </context-param>
+
+       <context-param>
+      	     <param-name>DBPASSWORD</param-name>
+      	     <param-value>R3vature!R0ck5</param-value>
+      </context-param>
   <servlet>
     <description></description>
     <display-name>HomeServlet</display-name>
