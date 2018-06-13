@@ -36,8 +36,11 @@ public class LoginServlet extends HttpServlet {
 			// Lets the user know the username and password don't match any employee records
 			else {
 				PrintWriter pw = resp.getWriter();
-				pw.print("Username and password don't match!");
-				req.getRequestDispatcher("/login").include(req,  resp);
+				resp.setContentType("text/html");  
+				pw.println("<script type=\"text/javascript\">");  
+				pw.println("alert('Username and password do not match!');");  
+				pw.println("</script>");
+				req.getRequestDispatcher("login.html").include(req,  resp);
 				pw.close();
 			}
 		}catch(SQLException e) {
