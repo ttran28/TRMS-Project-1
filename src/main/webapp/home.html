@@ -97,7 +97,7 @@
         </div>
 
         <!-- Button to Add New Form -->
-        <a href="reimbursementform.html"><button class="btn btn-success btn-sm">Create New Reimbursement Request</button></a>
+        <a href="form.html"><button class="btn btn-success btn-sm">Create New Reimbursement Request</button></a>
 
         <!-- Button Modal for Submitted Request -->
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">View More Info</button>
@@ -141,7 +141,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
+                        <h4 class="modal-title">Submitted Form Details</h4>
                     </div>
                     <div class="modal-body modal-lg">
                         <p>Form ID</p>
@@ -163,8 +163,9 @@
                         <p>Approval Head?</p>
                         <p>Attachment That Was Submitted In Form</p>
 
-
-                        <button>Request More Info Button For Supervisor/Head/BenCo</button>
+                        <button class="btn btn-success btn-sm">Approve</button>
+                        <button class="btn btn-danger btn-sm">Deny</button>
+                        <button class="btn btn-primary btn-sm">Request More Info Button For Supervisor/Head/BenCo</button>
 
 
 
@@ -185,7 +186,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
+                        <h4 class="modal-title">Requests Details</h4>
                     </div>
                     <div class="modal-body modal-lg">
                         <p>Response ID:</p>
@@ -196,20 +197,17 @@
                         <p>Response Message: Please submit more documents.</p>
                         <p>Attachment:</p>
                         <form action="">
-                            <input type="file" name="attachmentFileRequest" accept=".jgp, .jpeg, .png, .doc, .docx, .pdf, .msg, .txt" />
-                            <input type="submit" />
+                            <input type="file" class="btn btn-default btn-sm" name="attachmentFileRequest" accept=".jgp, .jpeg, .png, .doc, .docx, .pdf, .msg, .txt" />
+                            <br/>
+                            <input class="btn btn-primary btn-sm" type="submit" />
                         </form>
 
                         <br />
-                        <button>Close the Request</button>
-
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button class="btn btn-danger btn-sm">Close the Request</button>
+                        </div> </div>
+                   
                 </div>
 
             </div>
