@@ -29,12 +29,9 @@ public class FormServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			EmployeeDAOImpl edi = new EmployeeDAOImpl(getServletContext().getInitParameter("dbUrl"),
-					  								  getServletContext().getInitParameter("dbUsr"),
-					  								  getServletContext().getInitParameter("dbPass"));
-			FormDAOImpl fdi = new FormDAOImpl(getServletContext().getInitParameter("dbUrl"),
-					  						  getServletContext().getInitParameter("dbUsr"),
-					  						  getServletContext().getInitParameter("dbPass"));
+			String[] info = getServletContext().getInitParameter("dbInfo").split(",");
+			EmployeeDAOImpl edi = new EmployeeDAOImpl(info);
+			FormDAOImpl fdi = new FormDAOImpl(info);
 		
 			Employee emp = edi.getEmployee((Integer) req.getAttribute("employeeid"));
 			Employee sup = edi.getEmployee(emp.getSupervisorId());

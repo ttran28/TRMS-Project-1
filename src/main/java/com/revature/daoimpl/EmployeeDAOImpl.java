@@ -13,21 +13,17 @@ import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDAO;
 
 public class EmployeeDAOImpl implements EmployeeDAO{
-	private String url;
-	private String username;
-	private String password;
+	private String[] info;
 	
-	public EmployeeDAOImpl(String u, String user, String pass) {
-		url = u;
-		username = user;
-		password = pass;
+	public EmployeeDAOImpl(String[] info) {
+		this.info = info;
 	}
 
 	@Override
 	public List<Employee> getAllEmployees() throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store employees
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		List<Employee> employees = new ArrayList<>();
 		
 		// Prepares the SQL resources
@@ -65,7 +61,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public Employee getEmployee(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates an empty employee to store information
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		Employee emp = new Employee();
 				
 		// Prepares the SQL resources
@@ -100,7 +96,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public Employee employeeLogin(String username, String password) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates an empty employee to store information
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		Employee emp = new Employee();
 						
 		// Prepares the SQL resources
@@ -136,7 +132,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public List<Employee> getSubordinates(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store employees
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		List<Employee> employees = new ArrayList<>();
 								
 		// Prepares the SQL resources

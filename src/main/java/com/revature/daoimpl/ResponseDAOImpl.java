@@ -13,21 +13,17 @@ import com.revature.beans.Response;
 import com.revature.dao.ResponseDAO;
 
 public class ResponseDAOImpl implements ResponseDAO{
-	private String url;
-	private String username;
-	private String password;
+	private String[] info;
 	
-	public ResponseDAOImpl(String u, String user, String pass) {
-		url = u;
-		username = user;
-		password = pass;
+	public ResponseDAOImpl(String[] info) {
+		this.info = info;
 	}
 	
 	@Override
 	public void createResponse(Response resp) throws SQLException {
 		// Retrieve the ConnFactory instance and create a database connection
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		
 		// Create a callable statement to insert a new response into the database
 		String sql = "call CREATE_RESPONSE{?, ?, ?, ?}";
@@ -46,7 +42,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 	public void updateResponse(Response resp) throws SQLException {
 		// Retrieve the ConnFactory instance and create a database connection
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 				
 		// Create a callable statement to update a response in the database
 		String sql = "call UPDATE_REQUEST{?, ?, ?, ?, ?}";
@@ -66,7 +62,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 	public Response retrieveResponse(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates an empty response
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		Response resp = new Response();
 		
 		// Prepares the SQL statement
@@ -93,7 +89,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 	public List<Response> retrieveSentResponses(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store responses
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		List<Response> responses = new ArrayList<>();
 						
 		// Prepares the SQL resources
@@ -124,7 +120,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 	public List<Response> retrieveReceivedResponses(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store responses
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		List<Response> responses = new ArrayList<>();
 						
 		// Prepares the SQL resources
@@ -155,7 +151,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 	public List<Response> retrieveAllResponses(int id) throws SQLException {
 		// Retrieves the ConnFactory instance to create a database connection and creates a list to store responses
 		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(url, username, password);
+		Connection conn = cf.getConnection(info);
 		List<Response> responses = new ArrayList<>();
 						
 		// Prepares the SQL resources
