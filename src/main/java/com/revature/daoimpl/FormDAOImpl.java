@@ -99,8 +99,7 @@ public class FormDAOImpl implements FormDAO{
 		String sql = "SELECT * FROM FORMID WHERE FORMID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
-		
+		ResultSet rs = stmt.executeQuery();
 		// Puts the request information into form
 		while(rs.next()) {
 			form.setId(rs.getInt(1));
@@ -111,16 +110,16 @@ public class FormDAOImpl implements FormDAO{
 			form.setEventDesc(rs.getString(6));
 			
 			// Converts the Blob into a file
-			try {
-			InputStream is = rs.getBinaryStream(7);
-			File temp = new File("temp.txt");
-			temp.deleteOnExit();
-			FileUtils.copyInputStreamToFile(is, temp);
-			form.setWrj(temp);
-			}catch(IOException e) {
-				e.printStackTrace();
-				form.setWrj(null);
-			}
+//			try {
+//			InputStream is = rs.getBinaryStream(7);
+//			File temp = new File("temp.txt");
+//			temp.deleteOnExit();
+//			FileUtils.copyInputStreamToFile(is, temp);
+//			form.setWrj(temp);
+//			}catch(IOException e) {
+//				e.printStackTrace();
+//				form.setWrj(null);
+//			}
 			
 			form.setPresGrade(rs.getString(8));
 			form.setGradeFormat(rs.getInt(9));
@@ -149,7 +148,7 @@ public class FormDAOImpl implements FormDAO{
 		String sql = "SELECT FORMID FROM EMPID_FORMID WHERE EMPID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 						
 		// Retrieves the forms in the database that match an employee's id and puts them in the forms list
 		while(rs.next()) {

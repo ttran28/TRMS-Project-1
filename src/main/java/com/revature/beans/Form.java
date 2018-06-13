@@ -4,6 +4,15 @@ import java.io.File;
 import java.sql.Date;
 
 public class Form {
+	@Override
+	public String toString() {
+		return "Form [id=" + id + ", eventId=" + eventId + ", submissionDate=" + submissionDate + ", eventDate="
+				+ eventDate + ", eventLocation=" + eventLocation + ", eventDesc=" + eventDesc + ", wrj=" + wrj
+				+ ", presGrade=" + presGrade + ", gradeFormat=" + gradeFormat + ", status=" + status
+				+ ", reimbursementAmount=" + reimbursementAmount + ", amountStatus=" + amountStatus + ", urgent="
+				+ urgent + ", supervisorApproval=" + supervisorApproval + ", headApproval=" + headApproval
+				+ ", benCoApproval=" + benCoApproval + "]";
+	}
 	// The values stored in a Form object
 	private int id;
 	private int eventId;
