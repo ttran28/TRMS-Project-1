@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.util;
 
 import java.io.File;
 import java.io.FileReader;
@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class ConnFactory {
 	// Holds the single instance of ConnFactory allowed
-	private static ConnFactory cf = null;
+	private static ConnFactory cf = new ConnFactory();
 		
 	// A private constructor that makes the ConnFactory class a singleton
 	private ConnFactory() {
@@ -35,7 +35,8 @@ public class ConnFactory {
 		try {
 			// Loads the database properties folder
 			Properties prop = new Properties();
-			prop.load(new FileReader(new File("src/main/resources/database.properties")));
+			FileReader file = new FileReader("database.properties");
+			prop.load(file);
 			
 			//Retrieves the necessary database driver
 			Class.forName(prop.getProperty("driver"));

@@ -124,4 +124,14 @@ public class Employee {
 	public void setBenCo(boolean isBenCo) {
 		this.isBenCo = isBenCo;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", phone=" + phone + ", email="
+				+ email + ", password=" + password + ", availableReimbursement=" + availableReimbursement
+				+ ", supervisorId=" + supervisorId + ", headId=" + headId + ", benCoId=" + benCoId + ", isSupervisor="
+				+ isSupervisor + ", isHead=" + isHead + ", isBenCo=" + isBenCo + "]";
+	}
+	
+	
 }
