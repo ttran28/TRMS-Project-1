@@ -1,10 +1,7 @@
 package com.revature.beans;
 
 import java.io.File;
-<<<<<<< HEAD
 import java.sql.Date;
-=======
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 
 public class Form {
 	// The values stored in a Form object
@@ -58,13 +55,8 @@ public class Form {
 	public String getEventDate() {
 		return eventDate;
 	}
-<<<<<<< HEAD
 	public void setEventDate(String eventDate2) {
 		this.eventDate = eventDate2;
-=======
-	public void setEventDate(String eventDate) {
-		this.eventDate = eventDate;
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 	}
 
 	// Getter and setter methods for the eventLocation field
@@ -162,8 +154,4 @@ public class Form {
 	public void setBenCoApproval(boolean benCoApproval) {
 		this.benCoApproval = benCoApproval;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147

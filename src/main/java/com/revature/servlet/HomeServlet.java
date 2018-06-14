@@ -112,7 +112,7 @@ public class HomeServlet extends HttpServlet {
 			String date = form.getSubmissionDate();
 			int status = form.getStatus();
 			String statusStr = getstatus(status);
-			Double amount = form.getReimbursementAmount();
+			String amount = form.getReimbursementAmount();
 			Boolean urgency = form.isUrgent();
 			Boolean DHA = form.isHeadApproval();
 			Boolean DSA = form.isSupervisorApproval();

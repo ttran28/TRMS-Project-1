@@ -32,7 +32,6 @@ public class FormDAOImpl implements FormDAO {
 		// Retrieve the ConnFactory instance and create a database connection
 		ConnFactory cf = ConnFactory.getInstance();
 		Connection conn = cf.getConnection(info);
-<<<<<<< HEAD
 
 		try {
 			String formidval = "Select max(formid) from formid";
@@ -69,39 +68,6 @@ public class FormDAOImpl implements FormDAO {
 			System.out.println(ex.getMessage());
 		}
 
-=======
-		
-		// Create a callable statement to insert a new form into the database
-<<<<<<< HEAD
-		String sql = "call CREATE_REQUEST{?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?}";
-		CallableStatement stmt = conn.prepareCall(sql);
-		
-		stmt.setInt(1, form.getEventId());
-		stmt.setString(2, form.getSubmissionDate());
-=======
-		String sql = "call CREATE_REQUEST{?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?}";
-		CallableStatement stmt = conn.prepareCall(sql);
-		
-		stmt.setInt(1, form.getEventId());
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
-		stmt.setString(3, form.getEventDate());
-		stmt.setString(4, form.getEventLocation());
-		stmt.setString(5, form.getEventDesc());
-		stmt.setBlob(6, (Blob) form.getWrj());
-		stmt.setString(7, form.getPresGrade());
-		stmt.setInt(8, form.getGradeFormat());
-		stmt.setInt(9, form.getStatus());
-		stmt.setDouble(10, form.getReimbursementAmount());
-		stmt.setInt(11, form.getAmountStatus());
-		stmt.setBoolean(12, form.isUrgent());
-		stmt.setBoolean(13, form.isHeadApproval());
-		stmt.setBoolean(14, form.isSupervisorApproval());
-		stmt.setBoolean(15, form.isBenCoApproval());
-		
-		// Executes the statement and closes the database connection
-		stmt.execute();
-		conn.close();
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 	}
 
 	@Override
@@ -148,13 +114,8 @@ public class FormDAOImpl implements FormDAO {
 		String sql = "SELECT * FROM FORMID WHERE FORMID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-<<<<<<< HEAD
 		ResultSet rs = stmt.executeQuery(sql);
 
-=======
-		ResultSet rs = stmt.executeQuery();
-		
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 		// Puts the request information into form
 		while (rs.next()) {
 			form.setId(rs.getInt(1));
@@ -165,18 +126,6 @@ public class FormDAOImpl implements FormDAO {
 			form.setEventDesc(rs.getString(6));
 
 			// Converts the Blob into a file
-<<<<<<< HEAD
-//			try {
-//			InputStream is = rs.getBinaryStream(7);
-//			File temp = new File("temp.txt");
-//			temp.deleteOnExit();
-//			FileUtils.copyInputStreamToFile(is, temp);
-//			form.setWrj(temp);
-//			}catch(IOException e) {
-//				e.printStackTrace();
-//				form.setWrj(null);
-//			}
-=======
 			try {
 				InputStream is = rs.getBinaryStream(7);
 				File temp = new File("temp.txt");
@@ -187,12 +136,7 @@ public class FormDAOImpl implements FormDAO {
 				e.printStackTrace();
 				form.setWrj(null);
 			}
-<<<<<<< HEAD
 
-=======
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
-			
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 			form.setPresGrade(rs.getString(8));
 			form.setGradeFormat(rs.getInt(9));
 			form.setStatus(rs.getInt(10));
@@ -221,18 +165,11 @@ public class FormDAOImpl implements FormDAO {
 		String sql = "SELECT FORMID FROM EMPID_FORMID WHERE EMPID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-<<<<<<< HEAD
 		ResultSet rs = stmt.executeQuery(sql);
 
 		// Retrieves the forms in the database that match an employee's id and puts them
 		// in the forms list
 		while (rs.next()) {
-=======
-		ResultSet rs = stmt.executeQuery();
-						
-		// Retrieves the forms in the database that match an employee's id and puts them in the forms list
-		while(rs.next()) {
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 			Form reim = retrieveForm(rs.getInt(1));
 
 			forms.add(reim);
@@ -255,21 +192,11 @@ public class FormDAOImpl implements FormDAO {
 		String sql = "SELECT FORMGRDFORMAT FROM FORMGRDFORMATID WHERE FORMGRDFORMATID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-<<<<<<< HEAD
 		ResultSet rs = stmt.executeQuery(sql);
-<<<<<<< HEAD
 
 		// Retrieves the requested information from the database and stores them in
 		// format
 		while (rs.next()) {
-=======
-=======
-		ResultSet rs = stmt.executeQuery();
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
-		
-		// Retrieves the requested information from the database and stores them in format
-		while(rs.next()) {
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 			format.add(rs.getString(1));
 			format.add(rs.getString(2));
 		}
@@ -290,16 +217,8 @@ public class FormDAOImpl implements FormDAO {
 		String sql = "SELECT FORMSTATUS FROM FORMSTATUSCODE WHERE FORMSTATUSCODE = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-<<<<<<< HEAD
 		ResultSet rs = stmt.executeQuery(sql);
-<<<<<<< HEAD
 
-=======
-=======
-		ResultSet rs = stmt.executeQuery();
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
-				
->>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 		// Retrieves the requested information from the database and stores it in status
 		while (rs.next()) {
 			status = rs.getString(1);
@@ -308,8 +227,4 @@ public class FormDAOImpl implements FormDAO {
 		// Returns status
 		return status;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147

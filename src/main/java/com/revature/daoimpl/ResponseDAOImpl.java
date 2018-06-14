@@ -159,11 +159,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		stmt.setInt(2, id);
-<<<<<<< HEAD
 		ResultSet rs = stmt.executeQuery(sql);
-=======
-		ResultSet rs = stmt.executeQuery();
->>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 						
 		// Retrieves the responses in the database that an employee received and puts them into responses
 		while(rs.next()) {
