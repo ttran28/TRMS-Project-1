@@ -1,102 +1,116 @@
-body {
-    margin: 0px;
-    padding 10px;
-    background-color: lightcyan;
+.breadcrumb {
+  background: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
 }
 
-table, th, td {
-    border: 1px solid black;
+.breadcrumb-wrapper {
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #e2e2e2;
 }
 
+.navbar {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+}
+
+/* Split the screen in half */
 .split {
-    height: 80%;
-    width: 47%;
-    position: fixed;
-    z-index: 1;
-    top: 2;
-    bottom: 1;
-    overflow-x: auto;
-    padding-top: 1px;
-    border-style: solid;
+  height: 70%;
+  width: 60%;
+  position: fixed;
+  z-index: 1;
+  top: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-.leftbutton{
-    float: left;
+/* Control the left side */
+.left {
+  left: 60px;
+  top: 130px;
+  height: 50%;
+  width: 37%;
+  top: 1;
+  background-color: white;
 }
 
-.rightbutton{
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: white;
+  border-style: groove;
+}
+
+.split2 {
+  height: 70%;
+  width: 60%;
+  position: fixed;
+  z-index: 1;
+  top: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.topnav{
+  background-color: #f3f3f3;
+  height: 11%;
+  top: 20%;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.splittop {
+  height: 35%;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  top: 1;
+  right: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.splitbottom {
+  height: 35%;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  bottom: 20px;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.solid {
+  border-style: solid;
+  text-align: center;
+  transform: translate(-0.3%, -50%);
+}
+
+/* Style the image inside the centered container, if needed */
+.floatright{
     float: right;
+    transform: translate(-70%, -50%);
     left: 1;
 }
 
-.left {
-    left: 20px;
-    background-color: #00ffff;
-}
-
-.right {
-    right: 20px;
-    background-color: #00ffff;
-}
-
-.top {
-    top: : 0;
-    background-color: white;
-}
-
-.centered {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.title{
-    width: 500px;
-    border-style: outset;
-}
-
-.centered img {
-    width: 150px;
-    border-radius: 50%;
-}
-
-/*-----------------------------------------------------------------------*/
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.floatleft{
+    float: left;
+    transform: translate(10%, -50%);
+    right: 1;
 }

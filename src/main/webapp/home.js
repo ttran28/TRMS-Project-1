@@ -1,32 +1,53 @@
-function populateTable(){
-	var leftTable = document.getElementByID("lefttable");
-	console.log("here");
+function logout() {
+	// Step 1
+	var xhr = new XMLHttpRequest();
+	// Step 2 function to handle onreadystatechange of response
+	xhr.onreadystatechange = function() {
+		console.log("roll tide");
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			console.log('Logging out...');
+		} else {
+			console.log("Failed to logout!");
+		}
+	}
+	// Step 3 open the request/connection
+	xhr.open("GET", "/logout", true);
+	// Step 4 send the request
+	xhr.send();
 }
 
-function modal(){
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("menubutton");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
+function home() {
+	// Step 1
+	var xhr = new XMLHttpRequest();
+	// Step 2 function to handle onreadystatechange of response
+	xhr.onreadystatechange = function() {
+		console.log("roll tide");
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			console.log('Redirecting to home...');
+		} else {
+			console.log("Failed to redirect!");
+		}
+	}
+	// Step 3 open the request/connection
+	xhr.open("GET", "/return", true);
+	// Step 4 send the request
+	xhr.send();
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+function form() {
+	// Step 1
+	var xhr = new XMLHttpRequest();
+	// Step 2 function to handle onreadystatechange of response
+	xhr.onreadystatechange = function() {
+		console.log("roll tide");
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			console.log('Redirecting to form!!!...');
+		} else {
+			console.log("Failed to redirect!");
+		}
+	}
+	// Step 3 open the request/connection
+	xhr.open("GET", "htf", true);
+	// Step 4 send the request
+	xhr.send();
 }

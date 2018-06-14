@@ -7,15 +7,15 @@ public class Form {
 	// The values stored in a Form object
 	private int id;
 	private int eventId;
-	private Date submissionDate;
-	private Date eventDate;
+	private String submissionDate;
+	private String eventDate;
 	private String eventLocation;
 	private String eventDesc;
 	private File wrj;
 	private String presGrade;
 	private int gradeFormat;
 	private int status;
-	private double reimbursementAmount;
+	private String reimbursementAmount;
 	private int amountStatus;
 	private boolean urgent;
 	private boolean supervisorApproval;
@@ -44,19 +44,19 @@ public class Form {
 	}
 
 	// Getter and setter methods for the submissionDate field
-	public Date getSubmissionDate() {
+	public String getSubmissionDate() {
 		return submissionDate;
 	}
-	public void setSubmissionDate(Date submissionDate) {
+	public void setSubmissionDate(String submissionDate) {
 		this.submissionDate = submissionDate;
 	}
 
 	// Getter and setter methods for the eventDate field
-	public Date getEventDate() {
+	public String getEventDate() {
 		return eventDate;
 	}
-	public void setEventDate(Date eventDate) {
-		this.eventDate = eventDate;
+	public void setEventDate(String eventDate2) {
+		this.eventDate = eventDate2;
 	}
 
 	// Getter and setter methods for the eventLocation field
@@ -108,10 +108,10 @@ public class Form {
 	}
 
 	// Getter and setter methods for the reimbursementAmount field
-	public double getReimbursementAmount() {
+	public String getReimbursementAmount() {
 		return reimbursementAmount;
 	}
-	public void setReimbursementAmount(double reimbursementAmount) {
+	public void setReimbursementAmount(String reimbursementAmount) {
 		this.reimbursementAmount = reimbursementAmount;
 	}
 

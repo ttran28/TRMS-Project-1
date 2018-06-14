@@ -2,12 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ReimbursementSystem</display-name>
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>/login.html</welcome-file>
+    <welcome-file>/login.html</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>dbInfo</param-name>
-  	<param-value>jdbc:oracle:thin:@djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com:1521:ORCL,RevatureDJMA,R3vature!R0ck5</param-value>
+    <param-name>dbInfo</param-name>
+    <param-value>jdbc:oracle:thin:@djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com:1521:ORCL,RevatureDJMA,R3vature!R0ck5</param-value>
   </context-param>
   <servlet>
     <description></description>
@@ -33,11 +33,11 @@
     <description></description>
     <display-name>FormServlet</display-name>
     <servlet-name>FormServlet</servlet-name>
-    <servlet-class>com.revature.servlet.SubmitServlet</servlet-class>
+    <servlet-class>com.revature.servlet.FormServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FormServlet</servlet-name>
-    <url-pattern>/reimbursementform</url-pattern>
+    <url-pattern>/form</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -48,5 +48,45 @@
   <servlet-mapping>
     <servlet-name>ResponseServlet</servlet-name>
     <url-pattern>/response</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HomeToFormServlet</display-name>
+    <servlet-name>HomeToFormServlet</servlet-name>
+    <servlet-class>com.revature.servlet.HomeToFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeToFormServlet</servlet-name>
+    <url-pattern>/htf</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.revature.servlet.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveServlet</display-name>
+    <servlet-name>ApproveServlet</servlet-name>
+    <servlet-class>com.revature.servlet.ApproveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveServlet</servlet-name>
+    <url-pattern>/approve</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>DenyServlet</display-name>
+    <servlet-name>DenyServlet</servlet-name>
+    <servlet-class>com.revature.servlet.DenyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DenyServlet</servlet-name>
+    <url-pattern>/deny</url-pattern>
   </servlet-mapping>
 </web-app>

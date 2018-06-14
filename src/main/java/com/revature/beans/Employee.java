@@ -15,16 +15,17 @@ public class Employee {
 	private boolean isSupervisor;
 	private boolean isHead;
 	private boolean isBenCo;
-	
-	//An empty constructor
+
+	// An empty constructor
 	public Employee() {
-		
+
 	}
 
 	// Getter and setter methods for the id field
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -33,6 +34,7 @@ public class Employee {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -41,6 +43,7 @@ public class Employee {
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -49,6 +52,7 @@ public class Employee {
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
@@ -57,6 +61,7 @@ public class Employee {
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -65,6 +70,7 @@ public class Employee {
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -73,6 +79,7 @@ public class Employee {
 	public double getAvailableReimbursement() {
 		return availableReimbursement;
 	}
+
 	public void setAvailableReimbursement(double availableReimbursement) {
 		this.availableReimbursement = availableReimbursement;
 	}
@@ -81,6 +88,7 @@ public class Employee {
 	public int getSupervisorId() {
 		return supervisorId;
 	}
+
 	public void setSupervisorId(int supervisorId) {
 		this.supervisorId = supervisorId;
 	}
@@ -89,6 +97,7 @@ public class Employee {
 	public int getHeadId() {
 		return headId;
 	}
+
 	public void setHeadId(int headId) {
 		this.headId = headId;
 	}
@@ -97,6 +106,7 @@ public class Employee {
 	public int getBenCoId() {
 		return benCoId;
 	}
+
 	public void setBenCoId(int benCoId) {
 		this.benCoId = benCoId;
 	}
@@ -105,6 +115,7 @@ public class Employee {
 	public boolean isSupervisor() {
 		return isSupervisor;
 	}
+
 	public void setSupervisor(boolean isSupervisor) {
 		this.isSupervisor = isSupervisor;
 	}
@@ -113,6 +124,7 @@ public class Employee {
 	public boolean isHead() {
 		return isHead;
 	}
+
 	public void setHead(boolean isHead) {
 		this.isHead = isHead;
 	}
@@ -121,7 +133,17 @@ public class Employee {
 	public boolean isBenCo() {
 		return isBenCo;
 	}
+
 	public void setBenCo(boolean isBenCo) {
 		this.isBenCo = isBenCo;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", phone=" + phone + ", email="
+				+ email + ", password=" + password + ", availableReimbursement=" + availableReimbursement
+				+ ", supervisorId=" + supervisorId + ", headId=" + headId + ", benCoId=" + benCoId + ", isSupervisor="
+				+ isSupervisor + ", isHead=" + isHead + ", isBenCo=" + isBenCo + "]";
+	}
+
 }
