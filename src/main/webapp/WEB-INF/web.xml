@@ -59,7 +59,7 @@
     <servlet-name>HomeToFormServlet</servlet-name>
     <url-pattern>/htf</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>LogoutServlet</display-name>
     <servlet-name>LogoutServlet</servlet-name>
@@ -68,5 +68,25 @@
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveServlet</display-name>
+    <servlet-name>ApproveServlet</servlet-name>
+    <servlet-class>com.revature.servlet.ApproveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveServlet</servlet-name>
+    <url-pattern>/approve</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>DenyServlet</display-name>
+    <servlet-name>DenyServlet</servlet-name>
+    <servlet-class>com.revature.servlet.DenyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DenyServlet</servlet-name>
+    <url-pattern>/deny</url-pattern>
   </servlet-mapping>
 </web-app>

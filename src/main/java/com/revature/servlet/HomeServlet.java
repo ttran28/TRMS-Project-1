@@ -1,5 +1,7 @@
 package com.revature.servlet;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.revature.beans.Employee;
 import com.revature.beans.Form;
 import com.revature.beans.Response;
@@ -84,8 +87,10 @@ public class HomeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
-		request.getRequestDispatcher("/home.html").include(request, response);
+		request.getRequestDispatcher("/WEB-INF/home.html").include(request, response);
 	}
+
+
 
 	public void generateFormValue(List<Form> formList, PrintWriter pw){
 		for(Form form : formList){
@@ -97,7 +102,9 @@ public class HomeServlet extends HttpServlet {
 			Boolean DHA = form.isHeadApproval();
 			Boolean DSA = form.isSupervisorApproval();
 			Boolean BCA = form.isBenCoApproval();
-			pw.println("<tr>");
+			
+			pw.println("<tr id='" + form.getId() + "'>");
+			
 			pw.println("<td>" + date + "</td>");
 			pw.println("<td>" + statusStr + "</td>");
 			pw.println("<td>" + amount + "</td>");
@@ -105,13 +112,65 @@ public class HomeServlet extends HttpServlet {
 			pw.println("<td>" + DHA + "</td>");
 			pw.println("<td>" + DSA + "</td>");
 			pw.println("<td>" + BCA + "</td>");
+			pw.println("<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">View More Info</button></td>");
 			pw.println("</tr>");
+			
+			/* Modal */
+			pw.println("\n" + 
+					"<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\n" + 
+					"<div class=\"modal-dialog\">\n" + 
+					"\n" + 
+					"<!-- Modal content-->\n" + 
+					"<div class=\"modal-content\">\n" + 
+					"<div class=\"modal-header\">\n" + 
+					"<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n" + 
+					"<h4 class=\"modal-title\">Submitted Form Details</h4>\n" + 
+					"</div>\n" + 
+					"<div class=\"modal-body modal-lg\">\n" + 
+					"<p>Form ID: " + form.getId() + "</p>\n" + 
+					"<p>Event ID: " + form.getEventId() + "</p>\n" + 
+					"<p>Submission Date: " + form.getSubmissionDate() + " </p>\n" + 
+					"<p>Event Date: " + form.getEventDate() + "</p>\n" + 
+					"<p>Event Location: " + form.getEventLocation() + "</p>\n" + 
+					"<p>Event Description: " + form.getEventDesc() + "</p>\n" + 
+					"<p>Presented Grade: " + form.getPresGrade() + "</p>\n" + 
+					"<p>Grade Format: " + form.getGradeFormat() + "</p>\n" + 
+					"<p>Current Status: " + form.getStatus() + "</p>\n" + 
+					"<p>Amount To Be Reimbursed: " + form.getReimbursementAmount() + "</p>\n" + 
+					"<p>Amount Status: " + form.getAmountStatus() + "</p>\n" + 
+					"<p>Request Urgency: " + form.isUrgent() + "</p>\n" + 
+					"<p>Approval Benco?: " + form.isBenCoApproval() + "</p>\n" + 
+					"<p>Approval Supervisor?: " + form.isSupervisorApproval() + "</p>\n" + 
+					"<p>Approval Head?: " + form.isHeadApproval() + "</p>\n" + 
+					"\n" + 
+					"<button class=\"btn btn-success btn-sm\">Approve</button>\n" + 
+					"<button class=\"btn btn-danger btn-sm\">Deny</button>\n" + 
+					"<button class=\"btn btn-primary btn-sm\">Request More Info Button For Supervisor/Head/BenCo</button>\n" + 
+					"\n" + 
+					"\n" + 
+					"\n" + 
+					"\n" + 
+					"</div>\n" + 
+					"<div class=\"modal-footer\">\n" + 
+					"<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" + 
+					"</div>\n" + 
+					"</div>\n" + 
+					"\n" + 
+					"</div>\n" + 
+					"</div>\n" + 
+					"");
 		}
 		pw.println("</table>");
 		pw.println("</div>");
+		
 		pw.println("<a href=\"form.html\"><button class=\"btn btn-success btn-sm\">Create New Reimbursement Request</button></a>");
-		pw.println("<button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">View More Info</button>");
+		
+		/* Modal */
+		
+		
 	}
+	
+	
 	
 	public void generateRequestValue(List<Response> responseList, PrintWriter pw, EmployeeDAOImpl edi) throws SQLException{
 		for(Response response : responseList){
@@ -128,11 +187,51 @@ public class HomeServlet extends HttpServlet {
 			pw.println("<td>" + name2 + "</td>");
 			pw.println("<td>" + date + "</td>");
 			pw.println("<td>" + res + "</td>");
+			pw.println("<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\">View More Info</button></td>");
+			
 			pw.println("</tr>");
+			
+			
+			/* Modal 2 */
+			pw.println("<div id=\"myModal2\" class=\"modal fade\" role=\"dialog\">\n" + 
+					"            <div class=\"modal-dialog\">\n" + 
+					"\n" + 
+					"                <!-- Modal content-->\n" + 
+					"                <div class=\"modal-content\">\n" + 
+					"                    <div class=\"modal-header\">\n" + 
+					"                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n" + 
+					"                        <h4 class=\"modal-title\">Requests Details</h4>\n" + 
+					"                    </div>\n" + 
+					"                    <div class=\"modal-body modal-lg\">\n" + 
+					"                        <p>Response ID: " + response.getId() + "</p>\n" + 
+					"                        <p>Form ID: " + 
+					"                        <p>Sender ID: " + response.getSender() + "</p>\n" + 
+					"                        <p>Receiver ID: " + response.getReceiver() + "</p>\n" + 
+					"                        <p>Date Request/Response Was Made: " + response.getResponseDate() + "</p>\n" + 
+					"                        <p>Response Message: </p>\n" + 
+					"                        <p>Attachment: </p>\n" + 
+					"                        <form action=\"\">\n" + 
+					"                            <input type=\"file\" class=\"btn btn-default btn-sm\" name=\"attachmentFileRequest\" accept=\".jgp, .jpeg, .png, .doc, .docx, .pdf, .msg, .txt\" />\n" + 
+					"                            <br />\n" + 
+					"                            <input class=\"btn btn-primary btn-sm\" type=\"submit\" />\n" + 
+					"                        </form>\n" + 
+					"\n" + 
+					"                        <br />\n" + 
+					"                        <div>\n" + 
+					"                            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" + 
+					"                            <button class=\"btn btn-danger btn-sm\">Close the Request</button>\n" + 
+					"                        </div>\n" + 
+					"                    </div>\n" + 
+					"\n" + 
+					"                </div>\n" + 
+					"\n" + 
+					"            </div>\n" + 
+					"        </div>\n" + 
+					"        ");
 		}
 		pw.println("</table>");
 		pw.println("</div>");
-		pw.println("<button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal2\">View More Info</button>");
+		
 	}
 
 	public static String getstatus(int status) {
