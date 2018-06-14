@@ -1,8 +1,5 @@
 ﻿<!DOCTYPE html>
-<!--  Session Start -->
-<?php
-session_start();
-?>
+
 <html lang="en">
 <head>
 <title>Login</title>
@@ -22,22 +19,20 @@ session_start();
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Override navbar default css bg color -->
+<link rel="stylesheet" href="nav.css" />
+
 </head>
 <body>
-	<!-- Session User ID: -->
-	<?php
-    echo $_SESSION["userid"];
-    ?>
+
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Company Brand Name -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">DJ MA Tuition Reimbursement
-					Management System</a>
+				<a class="navbar-brand" href="#">DJ-MA Tuition Reimbursement Management System</a>
 			</div>
-
-
 		</div>
 	</nav>
 	<div class="container">
@@ -55,19 +50,19 @@ session_start();
 							<!-- E-mail Address -->
 							<div class="form-group">
 								<label for="email">E-mail:</label> <input type="email"
-									class="form-control" id="email"
-									placeholder="Enter e-mail address." required="required" />
+									class="form-control" id="email" name="email"
+									placeholder="Enter e-mail address" required="required" />
 							</div>
 
 							<!-- Password -->
 							<div class="form-group">
 								<label for="password">Password:</label> <input type="password"
-									class="form-control" id="password"
-									placeholder="Enter password." required="required" />
+									class="form-control" id="password" name="password"
+									placeholder="Enter password" required="required" />
 							</div>
 
 							<!-- Submit -->
-							<button type="submit" class="btn btn-default btn-block">Submit</button>
+							<button type="submit" class="btn btn-primary btn-block">Submit</button>
 						</form>
 					</div>
 

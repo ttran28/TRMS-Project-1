@@ -33,8 +33,8 @@ public class FormServlet extends HttpServlet {
 		System.out.println("In formServlet doPost");
 
 		try {
-//			HttpSession ses = req.getSession(false);
-//			int userid = (int) ses.getAttribute("userid");
+			HttpSession ses = req.getSession(false);
+			int userid = (int) ses.getAttribute("userid");
 
 			String[] info = getServletContext().getInitParameter("dbInfo").split(",");
 
@@ -42,7 +42,7 @@ public class FormServlet extends HttpServlet {
 			FormDAOImpl fdi = new FormDAOImpl(info);
 
 			//getEmployee(empid)
-			Employee emp = edi.getEmployee(202);
+			Employee emp = edi.getEmployee(userid);
 			Employee sup = edi.getEmployee(emp.getSupervisorId());
 			edi.initForm(emp.getId());
 
@@ -60,12 +60,12 @@ public class FormServlet extends HttpServlet {
 			pw.println("<script type=\"text/javascript\">");  
 			pw.println("alert('Form has been submitted!');");  
 			pw.println("</script>");
+			resp.sendRedirect("/ReimbursementSystem/home");
 			pw.close();
-			req.getRequestDispatcher("/home.html").forward(req, resp);
 		} catch (SQLException e) {
 			PrintWriter pw = resp.getWriter();
 			pw.print("System is down! Please try again later!");
-			req.getRequestDispatcher("/home.html").include(req, resp);
+			req.getRequestDispatcher("/WEB-INF/home.html").include(req, resp);
 			pw.close();
 		}
 	}

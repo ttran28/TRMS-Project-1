@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" id="begin">
+<head>
+<title>Home</title>
+<!--Bootstrap-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="nav.css" />
+
+<script type="text/javascript" src="home.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Company Brand Name -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="" onclick=home()>DJ MA Tuition
+					Reimbursement Managment System</a>
+			</div>
+
+			<ul class="nav navbar-nav">
+				<li><a href="" onclick=home()>Home</a></li>
+			</ul>
+
+			<!-- Logout -->
+			<ul class="nav navbar-nav navbar-right">
+				<li id="employeeID" class="navbar-text"><span>Employee
+						ID:</span></li>
+				<li id="logout"><a href="" onclick=logout()><span
+						class="glyphicon glyphicon-log-out">Logout</span></a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Submitted Form Details</h4>
+				</div>
+				<div class="modal-body modal-lg">
+					<p>Form ID</p>
+					<p>Event ID:</p>
+					<p>Event Type:</p>
+					<p>Submission Date:</p>
+					<p>Event Date:</p>
+					<p>Event Location:</p>
+					<p>Event Description:</p>
+					<p>Presented Grade:</p>
+					<p>Grade Format:</p>
+					<p>Current Status:</p>
+					<p>Amount To Be Reimbursed:</p>
+					<p>Amount Status (If over balance:)</p>
+					<p>Event Destination</p>
+					<p>Request Urgency:</p>
+					<p>Approval Benco?</p>
+					<p>Approval Supervisor?</p>
+					<p>Approval Head?</p>
+					<p>Attachment That Was Submitted In Form</p>
+
+					<button class="btn btn-success btn-sm">Approve</button>
+					<button class="btn btn-danger btn-sm">Deny</button>
+					<button class="btn btn-primary btn-sm">Request More Info
+						Button For Supervisor/Head/BenCo</button>
+
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="myModal2" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Requests Details</h4>
+				</div>
+				<div class="modal-body modal-lg">
+					<p>Response ID:</p>
+					<p>Form ID:</p>
+					<p>Sender ID:</p>
+					<p>Receiver ID:</p>
+					<p>Date Request/Response Was Made:</p>
+					<p>Response Message: Please submit more documents.</p>
+					<p>Attachment:</p>
+					<form action="">
+						<input type="file" class="btn btn-default btn-sm"
+							name="attachmentFileRequest"
+							accept=".jgp, .jpeg, .png, .doc, .docx, .pdf, .msg, .txt" /> <br />
+						<input class="btn btn-primary btn-sm" type="submit" />
+					</form>
+
+					<br />
+					<div>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button class="btn btn-danger btn-sm">Close the Request</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>

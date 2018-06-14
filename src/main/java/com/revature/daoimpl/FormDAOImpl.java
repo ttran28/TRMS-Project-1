@@ -103,82 +103,82 @@ public class FormDAOImpl implements FormDAO {
 	}
 
 	@Override
-	public Form retrieveForm(int id) throws SQLException {
-		// Retrieves the ConnFactory instance to create a database connection and
-		// creates an empty form
-		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(info);
-		Form form = new Form();
+    public Form retrieveForm(int id) throws SQLException {
+        // Retrieves the ConnFactory instance to create a database connection and
+        // creates an empty form
+        ConnFactory cf = ConnFactory.getInstance();
+        Connection conn = cf.getConnection(info);
+        Form form = new Form();
 
-		// Prepares the SQL statement
-		String sql = "SELECT * FROM FORMID WHERE FORMID = ?";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+        // Prepares the SQL statement
+        String sql = "SELECT * FROM FORMID WHERE FORMID = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
 
-		// Puts the request information into form
-		while (rs.next()) {
-			form.setId(rs.getInt(1));
-			form.setEventId(rs.getInt(2));
-			form.setSubmissionDate(rs.getString(3));
-			form.setEventDate(rs.getString(4));
-			form.setEventLocation(rs.getString(5));
-			form.setEventDesc(rs.getString(6));
+        // Puts the request information into form
+        while (rs.next()) {
+            form.setId(rs.getInt(1));
+            form.setEventId(rs.getInt(2));
+            form.setSubmissionDate(rs.getString(3));
+            form.setEventDate(rs.getString(4));
+            form.setEventLocation(rs.getString(5));
+            form.setEventDesc(rs.getString(6));
 
-			// Converts the Blob into a file
-			try {
-				InputStream is = rs.getBinaryStream(7);
-				File temp = new File("temp.txt");
-				temp.deleteOnExit();
-				FileUtils.copyInputStreamToFile(is, temp);
-				form.setWrj(temp);
-			} catch (IOException e) {
-				e.printStackTrace();
-				form.setWrj(null);
-			}
+            // Converts the Blob into a file
+//            try {
+//                InputStream is = rs.getBinaryStream(7);
+//                File temp = new File("temp.txt");
+//                temp.deleteOnExit();
+//                FileUtils.copyInputStreamToFile(is, temp);
+//                form.setWrj(temp);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                form.setWrj(null);
+//            }
 
-			form.setPresGrade(rs.getString(8));
-			form.setGradeFormat(rs.getInt(9));
-			form.setStatus(rs.getInt(10));
-			form.setReimbursementAmount(rs.getString(11));
-			form.setAmountStatus(rs.getInt(12));
-			form.setUrgent(rs.getBoolean(13));
-			form.setHeadApproval(rs.getBoolean(14));
-			form.setSupervisorApproval(rs.getBoolean(15));
-			form.setBenCoApproval(rs.getBoolean(16));
-		}
+            form.setPresGrade(rs.getString(8));
+            form.setGradeFormat(rs.getInt(9));
+            form.setStatus(rs.getInt(10));
+            form.setReimbursementAmount(rs.getString(11));
+            form.setAmountStatus(rs.getInt(12));
+            form.setUrgent(rs.getBoolean(13));
+            form.setHeadApproval(rs.getBoolean(14));
+            form.setSupervisorApproval(rs.getBoolean(15));
+            form.setBenCoApproval(rs.getBoolean(16));
+        }
 
-		// Closes the database connection and returns form
-		conn.close();
-		return form;
-	}
+        // Closes the database connection and returns form
+        conn.close();
+        return form;
+    }
 
-	@Override
-	public List<Form> retrieveForms(int id) throws SQLException {
-		// Retrieves the ConnFactory instance to create a database connection and
-		// creates a list to store forms
-		ConnFactory cf = ConnFactory.getInstance();
-		Connection conn = cf.getConnection(info);
-		List<Form> forms = new ArrayList<>();
+    @Override
+    public List<Form> retrieveForms(int id) throws SQLException {
+        // Retrieves the ConnFactory instance to create a database connection and
+        // creates a list to store forms
+        ConnFactory cf = ConnFactory.getInstance();
+        Connection conn = cf.getConnection(info);
+        List<Form> forms = new ArrayList<>();
 
-		// Prepares the SQL resources
-		String sql = "SELECT FORMID FROM EMPID_FORMID WHERE EMPID = ?";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+        // Prepares the SQL resources
+        String sql = "SELECT FORMID FROM EMPID_FORMID WHERE EMPID = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
 
-		// Retrieves the forms in the database that match an employee's id and puts them
-		// in the forms list
-		while (rs.next()) {
-			Form reim = retrieveForm(rs.getInt(1));
+        // Retrieves the forms in the database that match an employee's id and puts them
+        // in the forms list
+        while (rs.next()) {
+            Form reim = retrieveForm(rs.getInt(1));
 
-			forms.add(reim);
-		}
+            forms.add(reim);
+        }
 
-		// Closes the database connection and returns forms
-		conn.close();
-		return forms;
-	}
+        // Closes the database connection and returns forms
+        conn.close();
+        return forms;
+    }
 
 	@Override
 	public List<String> retrieveGradeFormat(int id) throws SQLException {

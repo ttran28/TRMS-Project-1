@@ -2,11 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ReimbursementSystem</display-name>
   <welcome-file-list>
-    <welcome-file>Login.html</welcome-file>
+    <welcome-file>/login.html</welcome-file>
+    <welcome-file>/login.html</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>dbInfo</param-name>
-  	<param-value>jdbc:oracle:thin:@djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com:1521:ORCL,RevatureDJMA,R3vature!R0ck5</param-value>
+    <param-name>dbInfo</param-name>
+    <param-value>jdbc:oracle:thin:@djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com:1521:ORCL,RevatureDJMA,R3vature!R0ck5</param-value>
   </context-param>
   <servlet>
     <description></description>
@@ -47,5 +48,15 @@
   <servlet-mapping>
     <servlet-name>ResponseServlet</servlet-name>
     <url-pattern>/response</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HomeToFormServlet</display-name>
+    <servlet-name>HomeToFormServlet</servlet-name>
+    <servlet-class>com.revature.servlet.HomeToFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeToFormServlet</servlet-name>
+    <url-pattern>/htf</url-pattern>
   </servlet-mapping>
 </web-app>
