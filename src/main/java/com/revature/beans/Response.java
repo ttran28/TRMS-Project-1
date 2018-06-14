@@ -1,14 +1,17 @@
 package com.revature.beans;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.sql.Date;
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 
 public class Response {
 	// Values stored in a Response object
 	private int id;
 	private int sender;
 	private int receiver;
-	private Date responseDate;
+	private String responseDate;
 	private String response;
 	private File attachment;
 	
@@ -42,10 +45,10 @@ public class Response {
 	}
 
 	// Getter and setter methods for the responseDate field
-	public Date getResponseDate() {
+	public String getResponseDate() {
 		return responseDate;
 	}
-	public void setResponseDate(Date responseDate) {
+	public void setResponseDate(String responseDate) {
 		this.responseDate = responseDate;
 	}
 
@@ -64,4 +67,13 @@ public class Response {
 	public void setAttachment(File attachment) {
 		this.attachment = attachment;
 	}
+<<<<<<< HEAD
+
+	@Override
+	public String toString() {
+		return "Response [id=" + id + ", sender=" + sender + ", receiver=" + receiver + ", responseDate=" + responseDate
+				+ ", response=" + response + ", attachment=" + attachment + "]";
+	}
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 }

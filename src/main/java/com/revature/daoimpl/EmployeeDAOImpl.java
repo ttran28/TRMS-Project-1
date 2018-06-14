@@ -167,7 +167,11 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		conn.close();
 		return employees;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> a4e13e3ea662f521fddb934d6a54cc6107fd9160
 	@Override
 	public void initForm(int id) throws SQLException {
 		ConnFactory cf = ConnFactory.getInstance();

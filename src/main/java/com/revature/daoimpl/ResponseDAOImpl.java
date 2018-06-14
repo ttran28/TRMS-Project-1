@@ -30,7 +30,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 		CallableStatement stmt = conn.prepareCall(sql);
 		stmt.setInt(1, resp.getSender());
 		stmt.setInt(2, resp.getReceiver());
-		stmt.setDate(3, resp.getResponseDate());
+		stmt.setString(3, resp.getResponseDate());
 		stmt.setString(4, resp.getResponse());
 		
 		// Executes the statement and closes the database connection
@@ -50,7 +50,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 		stmt.setInt(1, resp.getId());
 		stmt.setInt(2, resp.getSender());
 		stmt.setInt(3, resp.getReceiver());
-		stmt.setDate(4, resp.getResponseDate());
+		stmt.setString(4, resp.getResponseDate());
 		stmt.setString(5, resp.getResponse());
 		
 		// Executes the statement and closes the database connection
@@ -69,14 +69,14 @@ public class ResponseDAOImpl implements ResponseDAO{
 		String sql = "SELECT * FROM RESPONSEID WHERE RESPONSEID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 		
 		// Puts the response information into resp
 		while(rs.next()) {
 			resp.setId(rs.getInt(1));
 			resp.setSender(rs.getInt(2));
 			resp.setReceiver(rs.getInt(3));
-			resp.setResponseDate(rs.getDate(4));
+			resp.setResponseDate(rs.getString(4));
 			resp.setResponse(rs.getString(5));
 		}
 		
@@ -96,7 +96,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 		String sql = "SELECT * FROM RESPONSEID WHERE SENDER = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 						
 		// Retrieves the responses in the database that an employee sent and puts them into responses
 		while(rs.next()) {
@@ -105,7 +105,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 			resp.setId(rs.getInt(1));
 			resp.setSender(rs.getInt(2));
 			resp.setReceiver(rs.getInt(3));
-			resp.setResponseDate(rs.getDate(4));
+			resp.setResponseDate(rs.getString(4));
 			resp.setResponse(rs.getString(5));
 			
 			responses.add(resp);
@@ -127,7 +127,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 		String sql = "SELECT * FROM RESPONSEID WHERE RECEIVER = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery(sql);
+		ResultSet rs = stmt.executeQuery();
 						
 		// Retrieves the responses in the database that an employee received and puts them into responses
 		while(rs.next()) {
@@ -136,7 +136,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 			resp.setId(rs.getInt(1));
 			resp.setSender(rs.getInt(2));
 			resp.setReceiver(rs.getInt(3));
-			resp.setResponseDate(rs.getDate(4));
+			resp.setResponseDate(rs.getString(4));
 			resp.setResponse(rs.getString(5));
 			
 			responses.add(resp);
@@ -159,7 +159,11 @@ public class ResponseDAOImpl implements ResponseDAO{
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		stmt.setInt(2, id);
+<<<<<<< HEAD
 		ResultSet rs = stmt.executeQuery(sql);
+=======
+		ResultSet rs = stmt.executeQuery();
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 						
 		// Retrieves the responses in the database that an employee received and puts them into responses
 		while(rs.next()) {
@@ -168,7 +172,7 @@ public class ResponseDAOImpl implements ResponseDAO{
 			resp.setId(rs.getInt(1));
 			resp.setSender(rs.getInt(2));
 			resp.setReceiver(rs.getInt(3));
-			resp.setResponseDate(rs.getDate(4));
+			resp.setResponseDate(rs.getString(4));
 			resp.setResponse(rs.getString(5));
 			
 			responses.add(resp);

@@ -4,10 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
+
 public class ConnFactory {
 	// Holds the single instance of ConnFactory allowed
-	private static ConnFactory cf = null;
+	private static ConnFactory cf = new ConnFactory();
 		
+	String dbURL = "";
+	String dbUsername = "";
+	String dbPassword = "";
+	DataSource ds;
 	// A private constructor that makes the ConnFactory class a singleton
 	private ConnFactory() {
 		super();
@@ -29,6 +36,14 @@ public class ConnFactory {
 		
 		// Attempts to establish a connection with the database
 		try {
+<<<<<<< HEAD
+=======
+			// Loads the database properties folder
+			Properties prop = new Properties();
+			FileReader file = new FileReader("database.properties");
+			prop.load(file);
+			
+>>>>>>> ed4c19b395be48303ea5d2b50fae57261aaac459
 			//Retrieves the necessary database driver
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			

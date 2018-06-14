@@ -8,10 +8,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
 
+<<<<<<< HEAD
+import com.revature.beans.Employee;
+import com.revature.daoimpl.EmployeeDAOImpl;
+
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,9 +40,14 @@ public class LoginServlet extends HttpServlet {
 			if(emp.getId()!=0) {
 				PrintWriter pw = resp.getWriter();
 				resp.setContentType("text/html");
+<<<<<<< HEAD
 				pw.println("<?php>");
 				pw.println("$_SESSION[\"userid\"]=\"" + emp.getId() + "\";");
 				pw.println("?>");
+=======
+				HttpSession ses = req.getSession(true);
+				ses.setAttribute("userid", emp.getId());
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 				req.getRequestDispatcher("/home.html").forward(req, resp);
 			}
 			// Lets the user know the username and password don't match any employee records
