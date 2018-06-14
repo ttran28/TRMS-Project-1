@@ -109,7 +109,7 @@ public class HomeServlet extends HttpServlet {
 		}
 		pw.println("</table>");
 		pw.println("</div>");
-		pw.println("<a onclick=form() href=\"\"><button class=\"btn btn-success btn-sm\">Create New Reimbursement Request</button></a>");
+		pw.println("<a href=\"form.html\"><button class=\"btn btn-success btn-sm\">Create New Reimbursement Request</button></a>");
 		pw.println("<button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">View More Info</button>");
 	}
 	

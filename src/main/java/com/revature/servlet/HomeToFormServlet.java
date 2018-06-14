@@ -18,6 +18,7 @@ public class HomeToFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// response.sendRedirect("/ReimbursementSystem/form");
 		request.getRequestDispatcher("/WEB-INF/form.html").include(request, response);
 	}
 
