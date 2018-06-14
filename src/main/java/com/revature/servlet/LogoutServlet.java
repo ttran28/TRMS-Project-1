@@ -11,7 +11,7 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
-        resp.sendRedirect("ReimbursementSystem/");
+        resp.sendRedirect("/ReimbursementSystem/login.html");
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
