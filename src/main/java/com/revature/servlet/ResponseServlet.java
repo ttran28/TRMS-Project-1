@@ -61,7 +61,7 @@ public class ResponseServlet extends HttpServlet {
 			pw.println("</table>");
 			
 			// Returns the information to the home page
-			req.getRequestDispatcher("/home.html").forward(req, resp);
+			req.getRequestDispatcher("/home.html").include(req, resp);
 		}catch(SQLException e) {
 			// Lets the user know the system is down
 			PrintWriter pw = resp.getWriter();

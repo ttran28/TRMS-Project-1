@@ -32,8 +32,6 @@ public class LoginServlet extends HttpServlet {
 			
 			// Sends the user to the home screen if the username and password match an employee
 			if(emp.getId()!=0) {
-				PrintWriter pw = resp.getWriter();
-				resp.setContentType("text/html");
 				HttpSession ses = req.getSession(true);
 				ses.setAttribute("userid", emp.getId());
 				req.getRequestDispatcher("/home.html").forward(req, resp);
