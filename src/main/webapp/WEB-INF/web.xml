@@ -6,9 +6,30 @@
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
   <context-param>
+<<<<<<< HEAD
   	<param-name>dbInfo</param-name>
   	<param-value>jdbc:oracle:thin:@djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com:1521:ORCL,RevatureDJMA,R3vature!R0ck5</param-value>
   </context-param>
+=======
+      	     <param-name>DBHOST</param-name>
+      	     <param-value>djmarevature.cuthge62pylm.us-east-1.rds.amazonaws.com</param-value>
+      </context-param>
+      
+       <context-param>
+      	     <param-name>DBNAME</param-name>
+      	     <param-value>djmarevature</param-value>
+      </context-param>
+
+       <context-param>
+      	     <param-name>DBUSERNAME</param-name>
+      	     <param-value>RevatureDJMA</param-value>
+      </context-param>
+
+       <context-param>
+      	     <param-name>DBPASSWORD</param-name>
+      	     <param-value>R3vature!R0ck5</param-value>
+      </context-param>
+>>>>>>> ed4c19b395be48303ea5d2b50fae57261aaac459
   <servlet>
     <description></description>
     <display-name>HomeServlet</display-name>

@@ -125,7 +125,11 @@ public class Employee {
 		this.isBenCo = isBenCo;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> ed4c19b395be48303ea5d2b50fae57261aaac459
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", phone=" + phone + ", email="
@@ -133,6 +137,11 @@ public class Employee {
 				+ ", supervisorId=" + supervisorId + ", headId=" + headId + ", benCoId=" + benCoId + ", isSupervisor="
 				+ isSupervisor + ", isHead=" + isHead + ", isBenCo=" + isBenCo + "]";
 	}
+<<<<<<< HEAD
 =======
 >>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
+=======
+	
+	
+>>>>>>> ed4c19b395be48303ea5d2b50fae57261aaac459
 }

@@ -22,6 +22,11 @@ import com.revature.daoimpl.EmployeeDAOImpl;
 import com.revature.daoimpl.FormDAOImpl;
 import com.revature.daoimpl.ResponseDAOImpl;
 
+import com.revature.beans.Employee;
+import com.revature.beans.Form;
+import com.revature.daoimpl.EmployeeDAOImpl;
+import com.revature.daoimpl.FormDAOImpl;
+
 /**
  * Servlet implementation class HomeServlet
  */
@@ -30,6 +35,7 @@ public class HomeServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		List<Form> formList = new ArrayList<>();
@@ -62,6 +68,21 @@ public class HomeServlet extends HttpServlet {
 		}catch(SQLException e) {
 			pw.print("System is down! Please try again later!");
 			//request.getRequestDispatcher("/home").include(request,  response);
+=======
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		List<Form> formList = new ArrayList<>();
+		//response.getWriter().append("this");
+		try {
+			EmployeeDAOImpl edi = new EmployeeDAOImpl();
+			FormDAOImpl fdi = new FormDAOImpl();
+			Employee emp = edi.getEmployee(200);//(Integer) request.getAttribute("employeeid"));
+			System.out.println(emp);
+			formList = fdi.retrieveForms(emp.getId());
+		}catch(SQLException e) {
+			PrintWriter pw = response.getWriter();
+			pw.print("System is down! Please try again later!");
+			request.getRequestDispatcher("/home").include(request,  response);
+>>>>>>> ed4c19b395be48303ea5d2b50fae57261aaac459
 			e.printStackTrace();
 			pw.close();
 		}
