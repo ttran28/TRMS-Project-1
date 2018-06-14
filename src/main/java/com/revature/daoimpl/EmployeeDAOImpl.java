@@ -166,4 +166,15 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		conn.close();
 		return employees;
 	}
+	
+	@Override
+	public void initForm(int id) throws SQLException {
+		ConnFactory cf = ConnFactory.getInstance();
+		Connection conn = cf.getConnection(info);
+		String sql = "{CALL insertform(?)}";
+		CallableStatement stmt = conn.prepareCall(sql);
+		stmt.setInt(1, id);
+		stmt.executeQuery();
+		
+	}
 }

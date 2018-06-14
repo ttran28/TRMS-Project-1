@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,17 +31,11 @@ public class LoginServlet extends HttpServlet {
 			
 			// Sends the user to the home screen if the username and password match an employee
 			if(emp.getId()!=0) {
-<<<<<<< HEAD
-				req.setAttribute("employeeID", emp.getId());
-				//RequestDispatcher rd = req.getRequestDispatcher("yourServletPattern");
-				//rd.forward(request,response);
-=======
 				PrintWriter pw = resp.getWriter();
 				resp.setContentType("text/html");
 				pw.println("<?php>");
 				pw.println("$_SESSION[\"userid\"]=\"" + emp.getId() + "\";");
 				pw.println("?>");
->>>>>>> 97f2f54ccf24fce2215e6f4060fc23556b421197
 				req.getRequestDispatcher("/home.html").forward(req, resp);
 			}
 			// Lets the user know the username and password don't match any employee records

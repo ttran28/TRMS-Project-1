@@ -36,8 +36,8 @@ public class FormDAOImpl implements FormDAO{
 		CallableStatement stmt = conn.prepareCall(sql);
 		
 		stmt.setInt(1, form.getEventId());
-		stmt.setDate(2, form.getSubmissionDate());
-		stmt.setDate(3, form.getEventDate());
+		stmt.setString(2, form.getSubmissionDate());
+		stmt.setString(3, form.getEventDate());
 		stmt.setString(4, form.getEventLocation());
 		stmt.setString(5, form.getEventDesc());
 		stmt.setBlob(6, (Blob) form.getWrj());
@@ -68,8 +68,8 @@ public class FormDAOImpl implements FormDAO{
 		
 		stmt.setInt(1, form.getId());
 		stmt.setInt(2, form.getEventId());
-		stmt.setDate(3, form.getSubmissionDate());
-		stmt.setDate(4, form.getEventDate());
+		stmt.setString(3, form.getSubmissionDate());
+		stmt.setString(4, form.getEventDate());
 		stmt.setString(5, form.getEventLocation());
 		stmt.setString(6, form.getEventDesc());
 		stmt.setBlob(7, (Blob) form.getWrj());
@@ -100,12 +100,13 @@ public class FormDAOImpl implements FormDAO{
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
+		
 		// Puts the request information into form
 		while(rs.next()) {
 			form.setId(rs.getInt(1));
 			form.setEventId(rs.getInt(2));
-			form.setSubmissionDate(rs.getDate(3));
-			form.setEventDate(rs.getDate(4));
+			form.setSubmissionDate(rs.getString(3));
+			form.setEventDate(rs.getString(4));
 			form.setEventLocation(rs.getString(5));
 			form.setEventDesc(rs.getString(6));
 			
