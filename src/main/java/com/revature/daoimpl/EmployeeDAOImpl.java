@@ -1,5 +1,6 @@
 package com.revature.daoimpl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -165,5 +166,16 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		// Closes the database connection and returns employees
 		conn.close();
 		return employees;
+	}
+
+	@Override
+	public void initForm(int id) throws SQLException {
+		ConnFactory cf = ConnFactory.getInstance();
+		Connection conn = cf.getConnection(info);
+		String sql = "{CALL insertform(?)}";
+		CallableStatement stmt = conn.prepareCall(sql);
+		stmt.setInt(1, id);
+		stmt.executeQuery();
+		
 	}
 }

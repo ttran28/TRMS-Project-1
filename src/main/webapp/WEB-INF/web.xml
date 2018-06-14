@@ -2,8 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ReimbursementSystem</display-name>
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
   <context-param>
   	<param-name>dbInfo</param-name>
@@ -33,11 +32,11 @@
     <description></description>
     <display-name>FormServlet</display-name>
     <servlet-name>FormServlet</servlet-name>
-    <servlet-class>com.revature.servlet.SubmitServlet</servlet-class>
+    <servlet-class>com.revature.servlet.FormServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FormServlet</servlet-name>
-    <url-pattern>/reimbursementform</url-pattern>
+    <url-pattern>/form</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
