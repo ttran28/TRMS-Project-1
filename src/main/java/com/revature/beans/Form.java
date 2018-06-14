@@ -1,7 +1,10 @@
 package com.revature.beans;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.sql.Date;
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 
 public class Form {
 	// The values stored in a Form object
@@ -154,4 +157,8 @@ public class Form {
 	public void setBenCoApproval(boolean benCoApproval) {
 		this.benCoApproval = benCoApproval;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147

@@ -1,7 +1,10 @@
 package com.revature.beans;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.sql.Date;
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 
 public class Response {
 	// Values stored in a Response object
@@ -64,10 +67,13 @@ public class Response {
 	public void setAttachment(File attachment) {
 		this.attachment = attachment;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public String toString() {
 		return "Response [id=" + id + ", sender=" + sender + ", receiver=" + receiver + ", responseDate=" + responseDate
 				+ ", response=" + response + ", attachment=" + attachment + "]";
 	}
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 }

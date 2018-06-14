@@ -124,6 +124,7 @@ public class Employee {
 	public void setBenCo(boolean isBenCo) {
 		this.isBenCo = isBenCo;
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public String toString() {
@@ -132,4 +133,6 @@ public class Employee {
 				+ ", supervisorId=" + supervisorId + ", headId=" + headId + ", benCoId=" + benCoId + ", isSupervisor="
 				+ isSupervisor + ", isHead=" + isHead + ", isBenCo=" + isBenCo + "]";
 	}
+=======
+>>>>>>> 7b70f8a4828261d33ad79825f492008e610c1147
 }
